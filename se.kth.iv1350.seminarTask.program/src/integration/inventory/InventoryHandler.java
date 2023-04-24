@@ -17,6 +17,11 @@ public class InventoryHandler {
         return null; //temporary
     }
 
+    private ItemDTO searchForItem() {
+
+        return null; //temporary
+    }
+
     public void registerSoldItems(PurchaseDTO purchaseInformation) {
 
         //updates database quantity of specified items.

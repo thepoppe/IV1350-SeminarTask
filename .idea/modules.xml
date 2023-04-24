@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Seminar.iml" filepath="$PROJECT_DIR$/.idea/Seminar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/se.kth.iv1350.seminarTask.program/se.kth.iv1350.seminarTask.program.iml" filepath="$PROJECT_DIR$/se.kth.iv1350.seminarTask.program/se.kth.iv1350.seminarTask.program.iml" />
+      <module fileurl="file://$PROJECT_DIR$/se.kth.iv1350.seminarTask.startup/se.kth.iv1350.seminarTask.startup.iml" filepath="$PROJECT_DIR$/se.kth.iv1350.seminarTask.startup/se.kth.iv1350.seminarTask.startup.iml" />
+    </modules>
+  </component>
+</project>
