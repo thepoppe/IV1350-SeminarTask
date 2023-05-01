@@ -25,7 +25,7 @@ public class Payment {
         double amountInReg = register.getRegisterAmount();
 
         //Create receipt
-        this.receipt = new ReceiptDTO();
+        this.receipt = new ReceiptDTO(purchaseInformation, this.change);
         this.paymentInfo = new PaymentDTO(this.receipt, amountInReg);
 
 

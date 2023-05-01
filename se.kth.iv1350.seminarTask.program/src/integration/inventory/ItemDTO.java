@@ -1,5 +1,7 @@
 package integration.inventory;
 
+
+
 public class ItemDTO {
     private final int identifier;
     private final String description;

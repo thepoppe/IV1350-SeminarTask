@@ -10,6 +10,8 @@ import model.payment.PaymentDTO;
 import model.payment.ReceiptDTO;
 import model.purchase.Purchase;
 import model.purchase.PurchaseDTO;
+import model.purchase.SoldItem;
+import view.EnteredItemInfoDTO;
 
 import java.util.ArrayList;
 
@@ -48,15 +50,19 @@ public class Controller {
 
 
 
+// OBS EVENTUELL ÄNDRING inventoryhandler skapar soldItem?
 
-    public PurchaseDTO enterItemInfo(int identifier, int quantity) {
+    public PurchaseDTO enterItemInfo(EnteredItemInfoDTO registeredItemInformation) {
 
-        ItemDTO item = inventoryHandler.fetchItemFromInventory(identifier, quantity);
-        currentPurchase.updatePurchase(item, quantity);
+        ItemDTO collectedItem = inventoryHandler.fetchItemFromInventory(registeredItemInformation);
 
+                                            // Sold item = itemDTO, quantity
+        currentPurchase.addItemToPurchase(collectedItem, registeredItemInformation.getQuantity());
         return currentPurchase.getPurchaseDTO();
-
     }
+
+
+
 
 
     public PurchaseDTO requestDiscount(int customerID) {
@@ -85,9 +91,14 @@ public class Controller {
         PurchaseDTO purchaseInformation = currentPurchase.getPurchaseDTO();
 
         accounting.registerPayment(paymentInfo);
-        inventoryHandler.registerSoldItems(purchaseInformation);
-
+        inventoryHandler.updateQuantityInInventory(purchaseInformation);
         return receipt;
+    }
+    public void createTestInventory(SoldItem[] itemsInStock){
+        inventoryHandler.createTestInventory(itemsInStock);
+    }
 
+    public void createTestDiscount(int approvedCustomer) {
+        discountHandler.createTestDiscount(approvedCustomer);
     }
 }

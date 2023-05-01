@@ -8,7 +8,6 @@ class Register {
     }
 
     void updateRegister(ChangeDTO change, double paidAmount) {
-        //update amount based on change
         this.amount += (paidAmount - change.getAmount());
 
     }

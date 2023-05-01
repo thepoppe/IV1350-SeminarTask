@@ -1,5 +1,7 @@
 package model.purchase;
 
+import integration.inventory.ItemDTO;
+
 import java.util.ArrayList;
 
 class TotalVAT {
@@ -14,7 +16,20 @@ class TotalVAT {
         return amount;
     }
 
-    void updateTotalVAT( ArrayList<SoldItem> soldItems) {
-        // calculates and updates totalVAT
+    void addItemVAT(ItemDTO item){
+        amount += calculateVAT(item.getPrice(), item.getVAT());
+    }
+
+    void updateTotalVATAfterDiscounts( ArrayList<SoldItem> soldItems) {
+        this.amount = 0;
+        for (SoldItem registeredItem : soldItems) {
+            double itemPrice = registeredItem.getItem().getPrice() - registeredItem.getDiscount();
+            double itemVAT = registeredItem.getItem().getVAT();
+            this.amount +=  calculateVAT(itemPrice,itemVAT);
+        }
+    }
+
+    private double calculateVAT(double price, double VATRate){
+        return price * VATRate;
     }
 }

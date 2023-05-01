@@ -30,28 +30,29 @@ class SaleLog {
 
 
 
-    void updateSaleLog(ItemDTO item, int quantity) {
+    void addItemToSaleLog(ItemDTO item, int quantity) {
 
         int indexOfItem = findItemIndex(item);
         updateQuantity(indexOfItem,quantity);
-
-
-
-        runningTotal.updateTotalPrice(this.listOfSoldItems);
-        totalVAT.updateTotalVAT(this.listOfSoldItems);
+        runningTotal.addItemPrice(item.getPrice(), quantity);
+        totalVAT.addItemVAT(item);
 
     }
 
 
-    void updateSaleLog(ArrayList<DiscountDTO> discounts) {
+    void addDiscountToSaleLog(ArrayList<DiscountDTO> discounts) {
 
         //Searches through the arraylist after identifiers and adds Discounts to the SoldItem.
+        for (DiscountDTO discountOnItem: discounts) {
+            for (SoldItem registeredItem : listOfSoldItems) {
+                    if (discountOnItem.getItemIdentifier() == registeredItem.getItem().getIdentifier())
+                        registeredItem.setDiscount(discountOnItem.getDiscount());
+                }
 
+        }
 
-        //new runningTotal is calculated
-        runningTotal.updateTotalPrice(listOfSoldItems);
-
-        totalVAT.updateTotalVAT(listOfSoldItems);
+        runningTotal.updatePriceAfterDiscounts(listOfSoldItems);
+        totalVAT.updateTotalVATAfterDiscounts(listOfSoldItems);
     }
 
 
@@ -65,22 +66,26 @@ class SaleLog {
             else i++;
         }
 
-        if (!itemIsRegistered && listOfSoldItems.size() > 0){
+        if (!itemIsRegistered && listOfSoldItems.size() > 0)
             listOfSoldItems.add(new SoldItem(item));
-            i++;}
-        else listOfSoldItems.add(new SoldItem(item));
+
+        else if(!itemIsRegistered)
+            listOfSoldItems.add(new SoldItem(item));
 
         return i;
     }
 
 
-    private void updateQuantity(int index, int quantity){
+    private void updateQuantity(int indexOfSelectedItem, int quantityOfSelectedItem){
 
-        listOfSoldItems.get(index).addQuantity(quantity);
+        listOfSoldItems.get(indexOfSelectedItem).addToQuantity(quantityOfSelectedItem);
     }
 
+    TotalPrice getRunningTotal() {
+        return runningTotal;
+    }
 
-
-
-
+    TotalVAT getTotalVAT() {
+        return totalVAT;
+    }
 }

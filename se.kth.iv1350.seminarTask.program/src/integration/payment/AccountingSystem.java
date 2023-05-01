@@ -14,10 +14,7 @@ public class AccountingSystem {
     }
 
     public void registerPayment(PaymentDTO paymentInfo) {
-
         // Updates database with information about the purchase.
-
-        //updates the amount in register
         this.registerAmount = paymentInfo.getAmountInReg();
     }
 }

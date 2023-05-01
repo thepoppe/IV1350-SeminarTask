@@ -5,7 +5,16 @@ public class DiscountDTO {
     private int itemIdentifier;
     private double discount;
 
-     DiscountDTO(){}
+     DiscountDTO(int itemIdentifier, double recucedPrice){
+        this.itemIdentifier = itemIdentifier;
+        this.discount = recucedPrice;
+     }
 
+    public double getDiscount() {
+        return discount;
+    }
 
+    public int getItemIdentifier() {
+        return itemIdentifier;
+    }
 }

@@ -21,8 +21,8 @@ public class Purchase {
     }
 
 
-    public void updatePurchase(ItemDTO item, int quantity){
-        saleLog.updateSaleLog(item, quantity);
+    public void addItemToPurchase(ItemDTO item, int quantity){
+        saleLog.addItemToSaleLog(item, quantity);
         this.purchaseInformation = new PurchaseDTO(this.saleLog);
 
     }
@@ -33,7 +33,7 @@ public class Purchase {
     }
 
     public void addDiscount(ArrayList<DiscountDTO> discounts) {
-        saleLog.updateSaleLog(discounts);
+        saleLog.addDiscountToSaleLog(discounts);
         this.purchaseInformation = new PurchaseDTO(saleLog);
 
     }
