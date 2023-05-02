@@ -1,14 +1,13 @@
 package model.payment;
 
 import model.purchase.PurchaseDTO;
-import model.purchase.SoldItem;
+import model.purchase.ItemWithQuantity;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 
 public class ReceiptDTO {
-    private ArrayList<SoldItem> soldItems;
+    private ArrayList<ItemWithQuantity> itemWithQuantities;
     private double runningTotal;
     private double totalVAT;
     private double change;
@@ -16,7 +15,7 @@ public class ReceiptDTO {
 
 
     ReceiptDTO(PurchaseDTO purchaseInformation, ChangeDTO change){
-        this.soldItems = purchaseInformation.getRegisteredItems();
+        this.itemWithQuantities = purchaseInformation.getRegisteredItems();
         this.runningTotal = purchaseInformation.getRunningTotal();
         this.totalVAT = purchaseInformation.getTotalVAT();
         this.change = change.getAmount();
@@ -26,8 +25,8 @@ public class ReceiptDTO {
 
 
 
-    public ArrayList<SoldItem> getSoldItems() {
-        return soldItems;
+    public ArrayList<ItemWithQuantity> getSoldItems() {
+        return itemWithQuantities;
     }
 
     public double getRunningTotal() {

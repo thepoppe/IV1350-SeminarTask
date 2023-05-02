@@ -1,4 +1,4 @@
-package view;
+package integration.inventory;
 
 public class EnteredItemInfoDTO {
     private int identfier;
@@ -9,7 +9,7 @@ public class EnteredItemInfoDTO {
         this.quantity = quantity;
     }
 
-    public int getIdentfier() {
+    public int getIdentifier() {
         return identfier;
     }
 
@@ -17,3 +17,4 @@ public class EnteredItemInfoDTO {
         return quantity;
     }
 }
+

@@ -1,4 +1,4 @@
-package controller;
+ package controller;
 import integration.payment.AccountingSystem;
 import integration.discounts.DiscountDTO;
 import integration.discounts.DiscountHandler;
@@ -8,10 +8,10 @@ import model.payment.ChangeDTO;
 import model.payment.Payment;
 import model.payment.PaymentDTO;
 import model.payment.ReceiptDTO;
+import model.purchase.ItemWithQuantity;
 import model.purchase.Purchase;
 import model.purchase.PurchaseDTO;
-import model.purchase.SoldItem;
-import view.EnteredItemInfoDTO;
+import integration.inventory.EnteredItemInfoDTO;
 
 import java.util.ArrayList;
 
@@ -22,6 +22,7 @@ public class Controller {
     private final AccountingSystem accounting;
     private Purchase currentPurchase;
     private Payment payment;
+
 
 
     // constructor for Controller
@@ -50,15 +51,18 @@ public class Controller {
 
 
 
-// OBS EVENTUELL ÄNDRING inventoryhandler skapar soldItem?
+// OBS EVENTUELL ÄNDRING inventory handler skapar ItemWithQuantity?
 
     public PurchaseDTO enterItemInfo(EnteredItemInfoDTO registeredItemInformation) {
 
         ItemDTO collectedItem = inventoryHandler.fetchItemFromInventory(registeredItemInformation);
-
-                                            // Sold item = itemDTO, quantity
-        currentPurchase.addItemToPurchase(collectedItem, registeredItemInformation.getQuantity());
-        return currentPurchase.getPurchaseDTO();
+        if (collectedItem == null)
+            return null;
+        else {
+                                                // ItemWithQuantity = itemDTO, quantity
+            currentPurchase.addItemToPurchase(collectedItem, registeredItemInformation.getQuantity());
+            return currentPurchase.getPurchaseDTO();
+        }
     }
 
 
@@ -94,8 +98,13 @@ public class Controller {
         inventoryHandler.updateQuantityInInventory(purchaseInformation);
         return receipt;
     }
-    public void createTestInventory(SoldItem[] itemsInStock){
-        inventoryHandler.createTestInventory(itemsInStock);
+
+
+
+
+
+    public void createTestInventory(ItemWithQuantity[] itemsInStock){
+        inventoryHandler.addItemstoStock(itemsInStock);
     }
 
     public void createTestDiscount(int approvedCustomer) {

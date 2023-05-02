@@ -2,19 +2,19 @@ package model.purchase;
 
 import integration.inventory.ItemDTO;
 
-public class SoldItem {
+public class ItemWithQuantity {
 
     private final ItemDTO item;
     private int quantity;
     private double discount;
 
 
-    public SoldItem(ItemDTO item){
+    public ItemWithQuantity(ItemDTO item){
         this.item = item;
         this.quantity = 0;
         this.discount = 0;
     }
-    public SoldItem(ItemDTO item, int quantity){
+    public ItemWithQuantity(ItemDTO item, int quantity){
         this.item = item;
         this.quantity = quantity;
         this.discount = 0;
@@ -28,6 +28,7 @@ public class SoldItem {
         return quantity;
     }
 
+
     public void addToQuantity(int quantity) {
         this.quantity += quantity;
     }
@@ -40,14 +41,16 @@ public class SoldItem {
         return discount;
     }
 
+
+
     public void removeFromQuantity(int quantity){
         if (quantity > 0)
             this.quantity -= quantity;
         //else exception
     }
 
-    public boolean isEqualTo(SoldItem itemToBeComapared) {
-        if (this.item.getIdentifier() == itemToBeComapared.getItem().getIdentifier() )
+    public boolean isEqualTo(ItemWithQuantity itemToBeCompared) {
+        if (this.item.getIdentifier() == itemToBeCompared.getItem().getIdentifier() )
             return true;
         else
             return false;

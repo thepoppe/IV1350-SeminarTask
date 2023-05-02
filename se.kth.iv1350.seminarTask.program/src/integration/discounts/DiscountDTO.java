@@ -5,7 +5,7 @@ public class DiscountDTO {
     private int itemIdentifier;
     private double discount;
 
-     DiscountDTO(int itemIdentifier, double recucedPrice){
+     public DiscountDTO(int itemIdentifier, double recucedPrice){
         this.itemIdentifier = itemIdentifier;
         this.discount = recucedPrice;
      }

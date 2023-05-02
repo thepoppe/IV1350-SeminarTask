@@ -1,23 +1,22 @@
 package integration.inventory;
 
 import model.purchase.PurchaseDTO;
-import model.purchase.SoldItem;
-import view.EnteredItemInfoDTO;
+import model.purchase.ItemWithQuantity;
 
 import java.util.ArrayList;
 
 
 public class InventoryHandler {
 
-    private ArrayList<SoldItem> itemsInInventory;
+    private ArrayList<ItemWithQuantity> itemsInInventory;
 
     public InventoryHandler(){
-        this.itemsInInventory = new ArrayList<SoldItem>();
+        this.itemsInInventory = new ArrayList<ItemWithQuantity>();
     }
 
     public ItemDTO fetchItemFromInventory(EnteredItemInfoDTO registeredItemInfo){
 
-        int indexForSelectedItem =  findIndexForItem(registeredItemInfo.getIdentfier());
+        int indexForSelectedItem =  findIndexForItem(registeredItemInfo.getIdentifier());
         boolean itemsInStock = verifyItemAvailability(indexForSelectedItem, registeredItemInfo.getQuantity());
         ItemDTO selectedItem = null;
         if (itemsInStock) {
@@ -50,7 +49,7 @@ public class InventoryHandler {
 
 
     public void updateQuantityInInventory(PurchaseDTO purchaseInformation) {
-        ArrayList <SoldItem> boughtItems =  purchaseInformation.getRegisteredItems();
+        ArrayList <ItemWithQuantity> boughtItems =  purchaseInformation.getRegisteredItems();
         for (int i = 0; i < boughtItems.size(); i++) {
             int quantityOfCurrentItem = boughtItems.get(i).getQuantity();
 
@@ -63,9 +62,10 @@ public class InventoryHandler {
     }
 
 
-    public void createTestInventory(SoldItem[] itemsToAddToInventory) {
-        for (SoldItem item : itemsToAddToInventory) {
+    public void addItemstoStock(ItemWithQuantity[] itemsToAddToInventory) {
+        for (ItemWithQuantity item : itemsToAddToInventory) {
             itemsInInventory.add(item);
         }
     }
 }
+

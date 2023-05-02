@@ -1,32 +1,38 @@
 package model.purchase;
 
+import integration.inventory.ItemDTO;
+
 import java.util.ArrayList;
 
 class TotalPrice {
-    double amount;
+    double amountInclVAT;
 
     /**
      * default constructor
      */
     TotalPrice(){
-        this.amount = 0;
+        this.amountInclVAT = 0;
     }
 
 
-    double getAmount(){
-        return amount;
+    double getAmountInclVAT(){
+        return amountInclVAT;
     }
 
-    void addItemPrice(double amountToAdd,int quantity){
-        //calculates the total price and updates amount.
-        amount += amountToAdd * quantity;
+    void addItemPrice(ItemDTO itemToBeAdded, int quantity){
+        double amountToAdd = itemToBeAdded.getPrice() * quantity;
+        double amountOfVATtoAdd = amountToAdd * itemToBeAdded.getVAT();
+        this. amountInclVAT += amountToAdd + amountOfVATtoAdd;
     }
 
-    void updatePriceAfterDiscounts(ArrayList<SoldItem> soldItems){
-        //calculates the total price and updates amount.
-        this.amount = 0;
-        for (SoldItem item : soldItems) {
-            this.amount +=  (item.getItem().getPrice() - item.getDiscount()) * item.getQuantity();
+    void updatePriceAfterDiscounts(ArrayList<ItemWithQuantity> registeredItems){
+        double amountToAdd = 0;
+        double amountOfVATToAdd = 0;
+        for (ItemWithQuantity item : registeredItems) {
+            amountToAdd +=  (item.getItem().getPrice() - item.getDiscount()) * item.getQuantity();
+            amountOfVATToAdd += amountToAdd * item.getItem().getVAT();
         }
+        this.amountInclVAT = amountToAdd + amountOfVATToAdd;
     }
+
 }

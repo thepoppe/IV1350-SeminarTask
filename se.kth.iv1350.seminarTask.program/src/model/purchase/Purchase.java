@@ -2,7 +2,6 @@ package model.purchase;
 
 import integration.discounts.DiscountDTO;
 import integration.inventory.ItemDTO;
-
 import java.util.ArrayList;
 
 
@@ -17,24 +16,27 @@ public class Purchase {
      */
     public Purchase(){
         this.saleLog = new SaleLog();
-
     }
-
-
-    public void addItemToPurchase(ItemDTO item, int quantity){
-        saleLog.addItemToSaleLog(item, quantity);
-        this.purchaseInformation = new PurchaseDTO(this.saleLog);
-
+    SaleLog getSaleLog(){
+        return this.saleLog;
     }
-
 
     public PurchaseDTO getPurchaseDTO() {
         return this.purchaseInformation;
     }
 
+
+    public void addItemToPurchase(ItemDTO item, int quantity){
+        saleLog.addItemToSaleLog(item, quantity);
+        updatePurchaseInformation();
+    }
+
+
     public void addDiscount(ArrayList<DiscountDTO> discounts) {
         saleLog.addDiscountToSaleLog(discounts);
-        this.purchaseInformation = new PurchaseDTO(saleLog);
-
+        updatePurchaseInformation();
+    }
+    private void updatePurchaseInformation(){
+        this.purchaseInformation = new PurchaseDTO(this.saleLog);
     }
 }

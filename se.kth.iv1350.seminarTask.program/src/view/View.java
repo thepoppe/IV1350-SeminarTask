@@ -1,10 +1,11 @@
 package view;
 
 import controller.Controller;
+import integration.inventory.EnteredItemInfoDTO;
 import integration.inventory.ItemDTO;
 import model.payment.ChangeDTO;
 import model.payment.ReceiptDTO;
-import model.purchase.SoldItem;
+import model.purchase.ItemWithQuantity;
 import model.purchase.PurchaseDTO;
 
 public class View {
@@ -27,11 +28,11 @@ public class View {
         System.out.println("Method startSale OK\n\n");
 
         //adding items to inventory
-        SoldItem[] testInventory = {
-                new SoldItem(new ItemDTO(9,"Banana", 5.0, 0.25), 100),
-                new SoldItem(new ItemDTO(9,"Banana", 5.0, 0.25), 100),
-                new SoldItem(new ItemDTO(8,"Apple", 9.0,0.25), 100),
-                new SoldItem(new ItemDTO(120,"Car stereo", 100.0, 0.40),100),
+        ItemWithQuantity[] testInventory = {
+                new ItemWithQuantity(new ItemDTO(9,"Banana", 5.0, 0.25), 100),
+                new ItemWithQuantity(new ItemDTO(9,"Banana", 5.0, 0.25), 100),
+                new ItemWithQuantity(new ItemDTO(8,"Apple", 9.0,0.25), 100),
+                new ItemWithQuantity(new ItemDTO(120,"Car stereo", 100.0, 0.40),100),
         };
         controller.createTestInventory(testInventory);
         System.out.println("Method createTestInventory OK\n\n");
@@ -99,7 +100,7 @@ public class View {
     private void showOnScreen(PurchaseDTO info){
         //show information on screen.
         System.out.println("Information about the purchase:\n");
-        for (SoldItem item : info.getRegisteredItems()) {
+        for (ItemWithQuantity item : info.getRegisteredItems()) {
             System.out.print(item.getItem().getDescription());
             System.out.print(", "+ item.getItem().getPrice() +", ");
             System.out.print(item.getQuantity()+ "pc\n");
