@@ -17,25 +17,51 @@ public class Purchase {
     public Purchase(){
         this.saleLog = new SaleLog();
     }
+
+
+    /**
+     * Getter for tje internal saleLog.
+     * @return - returns a SaleLog containing information about the registered Items
+     */
     SaleLog getSaleLog(){
         return this.saleLog;
     }
 
+
+    /**
+     * getter for the PurchaseDTO
+     * @return - returns a PurchaseDTO
+     */
     public PurchaseDTO getPurchaseDTO() {
         return this.purchaseInformation;
     }
 
 
+    /**
+     * addItemToPurchase is the public interface for adding an Item to the current purchase. The
+     * method then gives information to the correct Classes within the model package.
+     * @param item - the item that is added
+     * @param quantity - the quantity of the item to be added
+     */
     public void addItemToPurchase(ItemDTO item, int quantity){
         saleLog.addItemToSaleLog(item, quantity);
         updatePurchaseInformation();
     }
 
 
+    /**
+     * adds the collected Discount to the saleLog
+     * @param discounts - a list of DiscountDTO collected from DiscountHandler
+     */
     public void addDiscount(ArrayList<DiscountDTO> discounts) {
         saleLog.addDiscountToSaleLog(discounts);
         updatePurchaseInformation();
     }
+
+
+    /**
+     * private method that creates a new PurchaseDTO with the latest information
+     */
     private void updatePurchaseInformation(){
         this.purchaseInformation = new PurchaseDTO(this.saleLog);
     }

@@ -62,7 +62,7 @@ public class InventoryHandler {
     }
 
 
-    public void addItemstoStock(ItemWithQuantity[] itemsToAddToInventory) {
+    public void addItemsToStock(ItemWithQuantity[] itemsToAddToInventory) {
         for (ItemWithQuantity item : itemsToAddToInventory) {
             itemsInInventory.add(item);
         }

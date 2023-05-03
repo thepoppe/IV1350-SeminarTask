@@ -104,7 +104,7 @@ public class Controller {
 
 
     public void createTestInventory(ItemWithQuantity[] itemsInStock){
-        inventoryHandler.addItemstoStock(itemsInStock);
+        inventoryHandler.addItemsToStock(itemsInStock);
     }
 
     public void createTestDiscount(int approvedCustomer) {

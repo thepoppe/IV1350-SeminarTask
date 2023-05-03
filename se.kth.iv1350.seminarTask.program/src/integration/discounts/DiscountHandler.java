@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class DiscountHandler {
 
-    private ArrayList<Integer> eligableCustomers;
+    private ArrayList<Integer> eligibleCustomers;
     private ArrayList<DiscountDTO> availableDiscounts;
 
     public DiscountHandler(){
@@ -16,16 +16,16 @@ public class DiscountHandler {
     public ArrayList<DiscountDTO> fetchAvailableDiscounts(int customerID, PurchaseDTO purchaseInformation){
         // Send identifier to database, collect discount
         ArrayList<DiscountDTO> discounts = new ArrayList<>();
-        if (eligableCustomers.contains(customerID))
+        if (eligibleCustomers.contains(customerID))
             discounts = availableDiscounts;
         
         return discounts;
     }
 
     public void createTestDiscount(int i) {
-        eligableCustomers = new ArrayList<Integer>();
-        eligableCustomers.add(i);
-        availableDiscounts = new ArrayList<DiscountDTO>();
+        eligibleCustomers = new ArrayList<>();
+        eligibleCustomers.add(i);
+        availableDiscounts = new ArrayList<>();
         availableDiscounts.add(new DiscountDTO(8, 2.0));
 
     }
