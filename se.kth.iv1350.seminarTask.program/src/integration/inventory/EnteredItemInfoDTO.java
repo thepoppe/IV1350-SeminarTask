@@ -1,16 +1,16 @@
 package integration.inventory;
 
 public class EnteredItemInfoDTO {
-    private int identfier;
+    private int identifier;
     private int quantity;
 
     public EnteredItemInfoDTO(int identifier, int quantity){
-        this.identfier = identifier;
+        this.identifier = identifier;
         this.quantity = quantity;
     }
 
     public int getIdentifier() {
-        return identfier;
+        return identifier;
     }
 
     public int getQuantity() {

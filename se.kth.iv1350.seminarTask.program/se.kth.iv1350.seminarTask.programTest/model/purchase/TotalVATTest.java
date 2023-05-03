@@ -33,7 +33,7 @@ class TotalVATTest {
     void getAmountWhenEmpty() {
         double expectedResult = 0;
         double result = defautTotalVAT.getAmount() + defautTotalVAT.getAmount();
-        assertEquals(expectedResult,result, "recieves wrong inital-value from contructor");
+        assertEquals(expectedResult,result, "receives wrong initial-value from constructor");
     }
 
     @org.junit.jupiter.api.Test
@@ -52,7 +52,7 @@ class TotalVATTest {
         firstItem.setDiscount(5);
         secondItem.setDiscount(5);
         defautTotalVAT.calculateTotalVATAfterDiscounts(testItems);
-        double expectedResult = (5-5)*0.25 + (10-5)*2 *0.25;
+        double expectedResult = (0)*0.25 + (10-5)*2 *0.25;
         double result = defautTotalVAT.getAmount();
         assertEquals(expectedResult,result, "wrong amount of VAT is calculated from Items");
 

@@ -91,9 +91,6 @@ public class ItemWithQuantity {
      * @return - returns a boolean.
      */
     public boolean isEqualTo(ItemWithQuantity itemToBeCompared) {
-        if (this.item.getIdentifier() == itemToBeCompared.getItem().getIdentifier() )
-            return true;
-        else
-            return false;
+        return this.item.getIdentifier() == itemToBeCompared.getItem().getIdentifier();
     }
 }

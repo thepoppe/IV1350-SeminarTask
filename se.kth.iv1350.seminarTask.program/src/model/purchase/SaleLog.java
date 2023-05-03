@@ -19,7 +19,7 @@ class SaleLog {
     SaleLog(){
         this.runningTotal = new TotalPrice();
         this.totalVAT = new TotalVAT();
-        this.listOfRegisteredItems = new ArrayList<ItemWithQuantity>();
+        this.listOfRegisteredItems = new ArrayList<>();
     }
 
 

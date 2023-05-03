@@ -24,7 +24,7 @@ public class AccountingSystem {
     /**
      * Contacts the External Database and register the accounting details.
      * This body is empty since the task is to dode the model not the data layers.
-     * Method alse updates the amount in the register.
+     * Method also updates the amount in the register.
      * @param paymentInfo - PaymentDTO with information about the Payment.
      */
     public void registerPayment(PaymentDTO paymentInfo) {

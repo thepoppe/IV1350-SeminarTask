@@ -11,7 +11,7 @@ public class InventoryHandler {
     private ArrayList<ItemWithQuantity> itemsInInventory;
 
     public InventoryHandler(){
-        this.itemsInInventory = new ArrayList<ItemWithQuantity>();
+        this.itemsInInventory = new ArrayList<>();
     }
 
     public ItemDTO fetchItemFromInventory(EnteredItemInfoDTO registeredItemInfo){
