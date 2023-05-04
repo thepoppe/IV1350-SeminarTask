@@ -103,11 +103,11 @@ public class View {
         System.out.println("Information about the purchase:");
         for (RegisteredItem item : info.getRegisteredItems()) {
             System.out.print(item.getItem().getDescription());
-            System.out.print(", "+ item.getItem().getPrice() +", ");
+            System.out.print(", "+ (item.getItem().getPrice()-item.getDiscount()) +", ");
             System.out.print(item.getQuantity()+ "pc\n");
         }
-        System.out.println("Running total: "+ info.getRunningTotal()+
-                "\nTotal VAT: "+ info.getTotalVAT() +"\n");
+        System.out.printf("Running total: %.2f\n" +
+                "Total VAT: %.2f\n\n", info.getRunningTotal(),info.getTotalVAT());
     }
 
 
