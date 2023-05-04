@@ -29,9 +29,6 @@ class ControllerTest {
 
     }
 
-    @Test
-    void startSale() {
-    }
 
     @Test
     void enterValidItemInfo() {
