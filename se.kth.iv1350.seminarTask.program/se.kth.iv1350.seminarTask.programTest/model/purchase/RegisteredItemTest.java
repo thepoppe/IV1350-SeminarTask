@@ -3,18 +3,18 @@ package model.purchase;
 import integration.inventory.ItemDTO;
 import static org.junit.jupiter.api.Assertions.*;
 
-class ItemWithQuantityTest {
+class RegisteredItemTest {
 
-    ItemWithQuantity firstItem;
-    ItemWithQuantity secondItem;
+    RegisteredItem firstItem;
+    RegisteredItem secondItem;
     ItemDTO testItem;
 
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
         testItem = new ItemDTO(9,"Banana", 5.0, 0.25);
-        firstItem = new ItemWithQuantity(testItem,1);
-        secondItem = new ItemWithQuantity(new ItemDTO(8, "apple", 5,0.3),1);
+        firstItem = new RegisteredItem(testItem,1);
+        secondItem = new RegisteredItem(new ItemDTO(8, "apple", 5,0.3),1);
     }
 
     @org.junit.jupiter.api.AfterEach

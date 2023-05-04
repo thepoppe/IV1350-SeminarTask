@@ -2,15 +2,19 @@ package model.purchase;
 
 import java.util.ArrayList;
 
+/**
+ * PurchaseDTO consist of an array with registered items, total price and total Vat. PurchaseDto
+ * contains the same information as the SaleLog but is a part of the public interface and therefor is immutable
+ */
 public class PurchaseDTO {
 
-    private ArrayList<ItemWithQuantity> registeredItems;
+    private ArrayList<RegisteredItem> registeredItems;
     private double  totalVAT;
     private double runningTotal;
 
 
     /**
-     * Constructor creates an instans of PurchaseDTO
+     * Constructor creates an instance of PurchaseDTO
      * @param saleLog - is the list of currently registered Item, the total price and the totalVat
      */
     public PurchaseDTO(SaleLog saleLog){
@@ -24,7 +28,7 @@ public class PurchaseDTO {
      * Getter for the list of items
      * @return - An ArrayList of ItemWIthQuantity
      */
-    public ArrayList<ItemWithQuantity> getRegisteredItems() {
+    public ArrayList<RegisteredItem> getRegisteredItems() {
         return registeredItems;
     }
 

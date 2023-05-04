@@ -1,7 +1,9 @@
 package integration.inventory;
 
 
-
+/**
+ * ItemDTO represents the individual items for purchase. Contains general information about the item.
+ */
 public class ItemDTO {
     private final int identifier;
     private final String description;

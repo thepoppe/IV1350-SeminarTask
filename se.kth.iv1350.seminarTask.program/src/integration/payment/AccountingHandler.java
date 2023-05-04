@@ -2,14 +2,18 @@ package integration.payment;
 
 import model.payment.PaymentDTO;
 
-public class AccountingSystem {
+/**
+ * AccountingHandler is a part of the integration layer and is responsible for storing the paymentInformation
+ * to external database. AccountingHandler also keeps track of the amount in the register.
+ */
+public class AccountingHandler {
 
     private double registerAmount;
 
     /**
-     * Constructor, creates an instance of AccountingSystem with the register amount set to 1000 for testing
+     * Constructor, creates an instance of AccountingHandler with the register amount set to 1000 for testing
      */
-    public AccountingSystem(){
+    public AccountingHandler(){
         this.registerAmount = 1000;
     }
 

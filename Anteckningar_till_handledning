@@ -17,3 +17,6 @@
     kanske under integration inventory?
 
 3: Try catch med exception på pay amount om summan är för lite. borde ge ett positivt värde tillbaks till user.
+
+
+NOTE: Splitta update external system och get Receipt

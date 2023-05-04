@@ -5,7 +5,7 @@ import integration.inventory.ItemDTO;
 import java.util.ArrayList;
 
 /**
- *
+ * TotalVAT represent the total amount of VAT added for all the registered items.
  */
 class TotalVAT {
 
@@ -45,9 +45,9 @@ class TotalVAT {
      *
      * @param registeredItems - registered Items is an ArrayList containing the registered Items and their quantities
      */
-    void calculateTotalVATAfterDiscounts(ArrayList<ItemWithQuantity> registeredItems) {
+    void calculateTotalVATAfterDiscounts(ArrayList<RegisteredItem> registeredItems) {
         this.amount = 0;
-        for (ItemWithQuantity currentItem : registeredItems) {
+        for (RegisteredItem currentItem : registeredItems) {
             double reducedPrice = currentItem.getItem().getPrice() - currentItem.getDiscount();
             double priceForAllNoOfItem = reducedPrice * currentItem.getQuantity();
             double itemVAT = currentItem.getItem().getVAT();

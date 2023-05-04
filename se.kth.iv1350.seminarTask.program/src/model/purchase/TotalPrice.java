@@ -4,6 +4,9 @@ import integration.inventory.ItemDTO;
 
 import java.util.ArrayList;
 
+/**
+ * TotalPrice represents the total price including the VAT for all registered items
+ */
 class TotalPrice {
     double amountInclVAT;
 
@@ -41,11 +44,11 @@ class TotalPrice {
      * all items that has been registered. amountInclVAT is then set to the amount.
      * @param registeredItems - contains a list with all registered item for the purchase.
      */
-    void updatePriceAfterDiscounts(ArrayList<ItemWithQuantity> registeredItems){
+    void updatePriceAfterDiscounts(ArrayList<RegisteredItem> registeredItems){
 
         double amountToAdd = 0;
         double amountOfVATToAdd = 0;
-        for (ItemWithQuantity item : registeredItems) {
+        for (RegisteredItem item : registeredItems) {
             amountToAdd +=  (item.getItem().getPrice() - item.getDiscount()) * item.getQuantity();
             amountOfVATToAdd += amountToAdd * item.getItem().getVAT();
             this.amountInclVAT += amountToAdd + amountOfVATToAdd;

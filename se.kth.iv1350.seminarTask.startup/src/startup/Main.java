@@ -1,24 +1,17 @@
 package startup;
 
+import integration.ExternalHandlerCreator;
 import view.View;
-import integration.inventory.InventoryHandler;
-import integration.payment.AccountingSystem;
-import integration.discounts.DiscountHandler;
 import controller.Controller;
 
 
 public class Main {
     public static void main(String[] args) {
 
+        ExternalHandlerCreator extCreator = new ExternalHandlerCreator();
+        Controller controller = new Controller(extCreator);
 
-        InventoryHandler inventoryHandler = new InventoryHandler();
-        DiscountHandler discountHandler = new DiscountHandler();
-        AccountingSystem accounting = new AccountingSystem();
-        Controller controller = new Controller(inventoryHandler, discountHandler, accounting);
-
-        new View(controller).testSale();
-
-
+        new View(controller).purchaseSimulation();
     }
 }
 

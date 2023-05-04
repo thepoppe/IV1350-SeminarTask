@@ -1,13 +1,16 @@
 package model.payment;
 
 import model.purchase.PurchaseDTO;
-import model.purchase.ItemWithQuantity;
+import model.purchase.RegisteredItem;
 
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 
+/**
+ * This class contains the information needed for printing the receipt.
+ */
 public class ReceiptDTO {
-    private ArrayList<ItemWithQuantity> listOfItems;
+    private ArrayList<RegisteredItem> listOfItems;
     private double runningTotal;
     private double totalVAT;
     private double change;
@@ -33,7 +36,7 @@ public class ReceiptDTO {
      * getter for the list of Items purchased
      * @return - ArrayList of ItemWithQuantity
      */
-    public ArrayList<ItemWithQuantity> getSoldItems() {
+    public ArrayList<RegisteredItem> getSoldItems() {
         return listOfItems;
     }
 

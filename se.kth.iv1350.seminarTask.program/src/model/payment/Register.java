@@ -1,5 +1,9 @@
 package model.payment;
 
+/**
+ * Register represent the cash registry and contains the available change. The Register is also
+ * responsible for calculating the change to be returned to customer.
+ */
 class Register {
     private double amount;
 

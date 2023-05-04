@@ -2,14 +2,14 @@ package model.payment;
 
 import model.purchase.PurchaseDTO;
 
+/**
+ * The class Payment is used as the public interface within the model/payment to handle the payment process
+ */
 public class Payment {
-
 
     private ChangeDTO change;
     private final Register register;
-
     private ReceiptDTO receipt;
-
     private PaymentDTO paymentInfo;
 
 
@@ -30,11 +30,16 @@ public class Payment {
      */
     public void paymentForItems(double paidAmount, PurchaseDTO purchaseInformation) {
 
-        this.change = new ChangeDTO(paidAmount, purchaseInformation);
-        register.updateRegister(this.change, paidAmount);
-        double amountInReg = register.getRegisterAmount();
-        this.receipt = new ReceiptDTO(purchaseInformation, this.change);
-        this.paymentInfo = new PaymentDTO(this.receipt, amountInReg);
+        if (paidAmount >= purchaseInformation.getRunningTotal()) {
+            this.change = new ChangeDTO(paidAmount, purchaseInformation);
+            register.updateRegister(this.change, paidAmount);
+            double amountInReg = register.getRegisterAmount();
+            this.receipt = new ReceiptDTO(purchaseInformation, this.change);
+            this.paymentInfo = new PaymentDTO(this.receipt, amountInReg);
+
+
+        }
+
 
     }
 

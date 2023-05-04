@@ -2,7 +2,11 @@ package model.purchase;
 
 import integration.inventory.ItemDTO;
 
-public class ItemWithQuantity {
+/**
+ * The class RegisteredItem is a class that consist of the Item information collected from the inventory and
+ * the quantity of this item. The item information is immutable but quantity and discount on the item can be changed
+ */
+public class RegisteredItem {
 
     private final ItemDTO item;
     private int quantity;
@@ -13,7 +17,7 @@ public class ItemWithQuantity {
      * Creates an instance of ItemWithQuantity
      * @param item - the item information
      */
-    public ItemWithQuantity(ItemDTO item){
+    public RegisteredItem(ItemDTO item){
         this.item = item;
         this.quantity = 0;
         this.discount = 0;
@@ -24,7 +28,7 @@ public class ItemWithQuantity {
      * @param item - the item information
      * @param quantity - the quantity of items registered
      */
-    public ItemWithQuantity(ItemDTO item, int quantity){
+    public RegisteredItem(ItemDTO item, int quantity){
         this.item = item;
         this.quantity = quantity;
         this.discount = 0;
@@ -69,7 +73,7 @@ public class ItemWithQuantity {
      * getter for discount
      * @return - returns a double of the amount of discount for the item
      */
-    double getDiscount() {
+    public double getDiscount() {
         return discount;
     }
 
@@ -90,7 +94,7 @@ public class ItemWithQuantity {
      * @param itemToBeCompared - the item that is compared to this item.
      * @return - returns a boolean.
      */
-    public boolean isEqualTo(ItemWithQuantity itemToBeCompared) {
+    public boolean isEqualTo(RegisteredItem itemToBeCompared) {
         return this.item.getIdentifier() == itemToBeCompared.getItem().getIdentifier();
     }
 }

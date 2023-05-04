@@ -7,14 +7,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TotalPriceTest {
     TotalPrice defautTotalPrice;
-    ItemWithQuantity firstItem;
-    ArrayList<ItemWithQuantity> testItems;
+    RegisteredItem firstItem;
+    ArrayList<RegisteredItem> testItems;
 
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
         defautTotalPrice = new TotalPrice();
-        firstItem = new ItemWithQuantity(new ItemDTO(9,"Banana", 5.0, 0.25), 1);
+        firstItem = new RegisteredItem(new ItemDTO(9,"Banana", 5.0, 0.25), 1);
         testItems = new ArrayList<>();
         testItems.add(firstItem);
 

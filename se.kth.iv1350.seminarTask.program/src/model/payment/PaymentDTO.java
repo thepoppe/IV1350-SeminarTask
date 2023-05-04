@@ -1,5 +1,8 @@
 package model.payment;
 
+/**
+ * PaymentDTO is specifically created to withhold the correct information for the AccountingHandler to store.
+ */
 public class PaymentDTO {
     private final double amountInReg;
     private final double chargedAmount;

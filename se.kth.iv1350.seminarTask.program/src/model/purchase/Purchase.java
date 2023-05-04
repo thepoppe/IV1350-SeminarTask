@@ -4,7 +4,10 @@ import integration.discounts.DiscountDTO;
 import integration.inventory.ItemDTO;
 import java.util.ArrayList;
 
-
+/**
+ * The class Purchase is a public interface within the model/purchase package. Purchase distributes
+ * method calls to the correct class within the system. This is to ensure better encapsulation.
+ */
 public class Purchase {
 
     private final SaleLog saleLog;
@@ -20,7 +23,7 @@ public class Purchase {
 
 
     /**
-     * Getter for tje internal saleLog.
+     * Getter for the internal saleLog.
      * @return - returns a SaleLog containing information about the registered Items
      */
     SaleLog getSaleLog(){

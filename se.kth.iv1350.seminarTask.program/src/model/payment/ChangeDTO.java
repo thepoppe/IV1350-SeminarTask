@@ -2,6 +2,9 @@ package model.payment;
 
 import model.purchase.PurchaseDTO;
 
+/**
+ * The class ChangeDTO is the information needed for the user to know how much change to return to the customer
+ */
 public class ChangeDTO {
 
     double amount;
@@ -13,7 +16,7 @@ public class ChangeDTO {
      */
     ChangeDTO(double paidAmount, PurchaseDTO purchaseInformation){
         double totalPrice = purchaseInformation.getRunningTotal();
-        this.amount = totalPrice - paidAmount;
+        this.amount = Math.abs(paidAmount-totalPrice);
     }
 
 

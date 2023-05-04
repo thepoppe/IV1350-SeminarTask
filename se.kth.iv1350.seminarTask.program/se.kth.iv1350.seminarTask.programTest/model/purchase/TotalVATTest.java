@@ -8,14 +8,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TotalVATTest {
     TotalVAT defautTotalVAT;
-    ItemWithQuantity firstItem;
-    ItemWithQuantity secondItem;
-    ArrayList<ItemWithQuantity> testItems;
+    RegisteredItem firstItem;
+    RegisteredItem secondItem;
+    ArrayList<RegisteredItem> testItems;
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
         defautTotalVAT = new TotalVAT();
-        firstItem = new ItemWithQuantity(new ItemDTO(9,"Banana", 5.0, 0.25), 1);
-        secondItem = new ItemWithQuantity(new ItemDTO(8,"Apple", 10.0, 0.25), 2);
+        firstItem = new RegisteredItem(new ItemDTO(9,"Banana", 5.0, 0.25), 1);
+        secondItem = new RegisteredItem(new ItemDTO(8,"Apple", 10.0, 0.25), 2);
         testItems = new ArrayList<>();
         testItems.add(firstItem);
         testItems.add(secondItem);
@@ -38,7 +38,7 @@ class TotalVATTest {
 
     @org.junit.jupiter.api.Test
     void addItemVAT() {
-        for (ItemWithQuantity item : testItems) {
+        for (RegisteredItem item : testItems) {
             defautTotalVAT.addItemVAT(item.getItem(), item.getQuantity());
         }
         double expectedResult = 5*0.25 + 10*2 *0.25;
