@@ -1,6 +1,7 @@
 package model.purchase;
 
 import integration.discounts.DiscountDTO;
+import integration.inventory.EnteredItemInfoDTO;
 import integration.inventory.ItemDTO;
 import java.util.ArrayList;
 
@@ -43,11 +44,11 @@ public class Purchase {
     /**
      * addItemToPurchase is the public interface for adding an Item to the current purchase. The
      * method then gives information to the correct Classes within the model package.
-     * @param item - the item that is added
-     * @param quantity - the quantity of the item to be added
+     * @param itemToAdd - the item that is added collected from inventory System
+     * @param quantityOfItem - the quantity of the item to be added
      */
-    public void addItemToPurchase(ItemDTO item, int quantity){
-        saleLog.addItemToSaleLog(item, quantity);
+    public void addItemToPurchase(ItemDTO itemToAdd, int quantityOfItem){
+        saleLog.addItemToSaleLog(itemToAdd, quantityOfItem);
         updatePurchaseInformation();
     }
 

@@ -23,13 +23,14 @@ public class DiscountHandler {
 
 
     /**
-     * collects available discount for the customer from the external database simulated by an ArrayList
+     * collects available discount for the customer from the external database.
+     * The database is simulated by an ArrayList
      * @param customerID - the identification of the customer
      * @param purchaseInformation - information about the purchase.
      * @return - returns a List of DiscountDTO that the customer is eligible for.
      */
     public ArrayList<DiscountDTO> fetchAvailableDiscounts(int customerID, PurchaseDTO purchaseInformation){
-        // Send identifier to database, collect discount
+
         ArrayList<DiscountDTO> discounts = new ArrayList<>();
         if (eligibleCustomers.contains(customerID))
             discounts = availableDiscounts;

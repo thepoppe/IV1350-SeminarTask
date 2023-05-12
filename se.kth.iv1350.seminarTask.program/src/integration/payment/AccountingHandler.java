@@ -32,7 +32,6 @@ public class AccountingHandler {
      * @param paymentInfo - PaymentDTO with information about the Payment.
      */
     public void registerPayment(PaymentDTO paymentInfo) {
-        // Updates database with information about the purchase.
         this.registerAmount = paymentInfo.getAmountInReg();
     }
 }

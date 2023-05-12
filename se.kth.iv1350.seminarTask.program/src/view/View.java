@@ -99,7 +99,6 @@ public class View {
     }
 
     private void showOnScreen(PurchaseDTO info){
-        //show information on screen.
         System.out.println("Information about the purchase:");
         for (RegisteredItem item : info.getRegisteredItems()) {
             System.out.print(item.getItem().getDescription());
