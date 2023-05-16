@@ -1,7 +1,6 @@
 package model.purchase;
 
 import integration.discounts.DiscountDTO;
-import integration.inventory.EnteredItemInfoDTO;
 import integration.inventory.ItemDTO;
 import java.util.ArrayList;
 
@@ -22,14 +21,6 @@ public class Purchase {
         this.saleLog = new SaleLog();
     }
 
-
-    /**
-     * Getter for the internal saleLog.
-     * @return - returns a SaleLog containing information about the registered Items
-     */
-    SaleLog getSaleLog(){
-        return this.saleLog;
-    }
 
 
     /**

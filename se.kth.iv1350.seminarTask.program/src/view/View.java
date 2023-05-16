@@ -7,6 +7,9 @@ import model.payment.ChangeDTO;
 import model.payment.ReceiptDTO;
 import model.purchase.RegisteredItem;
 import model.purchase.PurchaseDTO;
+import util.ExceptionLog;
+
+import java.io.IOException;
 
 /**
  * This class is a representation of the user interface for the cashier.
@@ -14,14 +17,17 @@ import model.purchase.PurchaseDTO;
 public class View {
 
     private final Controller controller;
+    private final ExceptionLog exceptionLog;
 
 
     /**
      * constructor creates an instance of the class Controller
      * @param controller - the controller created in main
      */
-    public View(Controller controller){
+    public View(Controller controller) throws IOException {
+
         this.controller = controller;
+        this.exceptionLog = new ExceptionLog();
     }
 
 
@@ -31,27 +37,32 @@ public class View {
      * method simulates a purchase following the flow from seminar 1
      */
     public void purchaseSimulation(){
-        System.out.println("Test Program Starts\n\n");
+        try {
+            System.out.println("Test Program Starts\n\n");
 
-        controller.startSale();
+            controller.startSale();
 
-        RegisteredItem[] testInventory = createItemsForInventory();
-        controller.createTestInventory(testInventory);
+            RegisteredItem[] testInventory = createItemsForInventory();
+            controller.createTestInventory(testInventory);
 
-        EnteredItemInfoDTO[] testItems = createCustomerBasket();
+            EnteredItemInfoDTO[] testItems = createCustomerBasket();
 
-        simulateScanningItems(testItems);
+            simulateScanningItems(testItems);
 
-        controller.createTestDiscount(1337,9,2);
-        boolean customerAskForDiscount = true;
-        simulateCustomerRequestDiscount(customerAskForDiscount);
+            controller.createTestDiscount(1337, 9, 2);
+            boolean customerAskForDiscount = true;
+            simulateCustomerRequestDiscount(customerAskForDiscount);
 
-        simulatePayment(200);
+            simulatePayment(200);
 
-        controller.shareInformationWithExtSystems();
+            controller.shareInformationWithExtSystems();
 
-        ReceiptDTO receipt = controller.collectReceipt();
-        printReceipt(receipt);
+            ReceiptDTO receipt = controller.collectReceipt();
+            printReceipt(receipt);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
@@ -107,8 +118,11 @@ public class View {
             System.out.print(", "+ (item.getItem().getPrice()-item.getDiscount()) +", ");
             System.out.print(item.getQuantity()+ "pc\n");
         }
-        System.out.printf("Running total: %.2f\n" +
-                "Total VAT: %.2f\n\n", info.getRunningTotal(),info.getTotalVAT());
+        System.out.printf("""
+                Running total: %.2f
+                Total VAT: %.2f
+
+                """, info.getRunningTotal(),info.getTotalVAT());
     }
 
 

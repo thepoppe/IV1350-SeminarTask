@@ -13,10 +13,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class SaleLogTest {
 
     SaleLog testLog;
-    ItemDTO firstTestItem = new ItemDTO(9,"Banana", 5.0, 0.25);
-    ItemDTO secondTestItem = new ItemDTO(8,"Apple", 10.0, 0.25);
+    final ItemDTO firstTestItem = new ItemDTO(9,"Banana", 5.0, 0.25);
+    final ItemDTO secondTestItem = new ItemDTO(8,"Apple", 10.0, 0.25);
     ArrayList<DiscountDTO> discounts;
-    DiscountDTO discountOnFirstItem= new DiscountDTO(9,2);
+    final DiscountDTO discountOnFirstItem= new DiscountDTO(9,2);
 
 
 

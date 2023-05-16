@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PaymentTest {
     Payment testPayment;
     PurchaseDTO purchaseInfo;
-    double amountPaidByCustomer = 100;
+    final double amountPaidByCustomer = 100;
     @BeforeEach
     void setUp() {
         Purchase testPurchase = new Purchase();

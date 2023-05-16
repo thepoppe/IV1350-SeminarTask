@@ -8,9 +8,9 @@ import java.util.ArrayList;
  */
 public class PurchaseDTO {
 
-    private ArrayList<RegisteredItem> registeredItems;
-    private double  totalVAT;
-    private double runningTotal;
+    private final ArrayList<RegisteredItem> registeredItems;
+    private final double  totalVAT;
+    private final double runningTotal;
 
 
     /**

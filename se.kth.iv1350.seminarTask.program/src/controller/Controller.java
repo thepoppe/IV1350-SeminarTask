@@ -1,5 +1,6 @@
  package controller;
 import integration.ExternalHandlerCreator;
+import integration.inventory.InvalidItemIdentifierException;
 import integration.payment.AccountingHandler;
 import integration.discounts.DiscountDTO;
 import integration.discounts.DiscountHandler;
@@ -60,14 +61,18 @@ import java.util.ArrayList;
      * @return - returns a PurchaseDTO with information about the purchase
      */
     public PurchaseDTO enterItemInfo(EnteredItemInfoDTO registeredItemInformation) {
-
-        ItemDTO collectedItem = inventoryHandler.fetchItemFromInventory(registeredItemInformation);
-        if (collectedItem == null)
-            return null;
-        else {
+        try {
+            ItemDTO collectedItem = inventoryHandler.fetchItemFromInventory(registeredItemInformation);
             currentPurchase.addItemToPurchase(collectedItem, registeredItemInformation.getQuantity());
             return currentPurchase.getPurchaseDTO();
         }
+        catch (InvalidItemIdentifierException e) {
+            throw new RuntimeException(e);
+        }
+        catch (Exception e){
+            throw new RuntimeException(e);
+        }
+
     }
 
 

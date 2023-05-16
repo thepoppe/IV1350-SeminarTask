@@ -10,11 +10,11 @@ import java.time.LocalDateTime;
  * This class contains the information needed for printing the receipt.
  */
 public class ReceiptDTO {
-    private ArrayList<RegisteredItem> listOfItems;
-    private double runningTotal;
-    private double totalVAT;
-    private double change;
-    private String timeAndDate;
+    private final ArrayList<RegisteredItem> listOfItems;
+    private final double runningTotal;
+    private final double totalVAT;
+    private final double change;
+    private final String timeAndDate;
 
 
     /**

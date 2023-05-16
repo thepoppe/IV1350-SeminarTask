@@ -1,5 +1,6 @@
 package integration.inventory;
 
+import integration.FailedToConnectToDatabaseException;
 import model.purchase.RegisteredItem;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,8 +31,13 @@ class InventoryHandlerTest {
     }
 
     @Test
-    void fetchItemFromInventory() {
-        ItemDTO fetchedItem=inventory.fetchItemFromInventory(new EnteredItemInfoDTO(searchedIdentifier,1));
+    void fetchItemFromInventory() throws FailedToConnectToDatabaseException {
+        ItemDTO fetchedItem= null;
+        try {
+            fetchedItem = inventory.fetchItemFromInventory(new EnteredItemInfoDTO(searchedIdentifier,1));
+        } catch (InvalidItemIdentifierException e) {
+            throw new RuntimeException(e);
+        }
         assertEquals(fetchedItem,wantedItem, " items are not the same");
     }
 

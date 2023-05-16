@@ -15,8 +15,8 @@ class DiscountHandlerTest {
 
     DiscountHandler discountHandler;
     ItemDTO itemToGetPriceReduced;
-    int firstValidCustomer = 10;
-    int secondInvalidCustomer = 0;
+    final int firstValidCustomer = 10;
+    final int secondInvalidCustomer = 0;
 
     Purchase purchase;
     PurchaseDTO purchaseInformation;

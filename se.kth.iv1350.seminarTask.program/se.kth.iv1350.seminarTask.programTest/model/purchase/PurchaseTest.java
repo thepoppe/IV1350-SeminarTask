@@ -12,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PurchaseTest {
     Purchase purchaseTest;
-    ItemDTO firstItem = new ItemDTO(9,"Banana", 5.0, 0.25);
-    int firstQuantity = 2;
+    final ItemDTO firstItem = new ItemDTO(9,"Banana", 5.0, 0.25);
+    final int firstQuantity = 2;
     ArrayList<DiscountDTO> listOfTestDiscounts;
 
 

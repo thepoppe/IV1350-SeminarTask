@@ -9,9 +9,9 @@ import integration.payment.AccountingHandler;
  */
 public class ExternalHandlerCreator {
 
-    private InventoryHandler inventoryHandler;
-    private DiscountHandler discountHandler;
-    private AccountingHandler accountingHandler;
+    private final InventoryHandler inventoryHandler;
+    private final DiscountHandler discountHandler;
+    private final AccountingHandler accountingHandler;
 
     /**
      * Constructor creates an instance of the class ExternalHandlerCreator and sets the attributes to new handlers

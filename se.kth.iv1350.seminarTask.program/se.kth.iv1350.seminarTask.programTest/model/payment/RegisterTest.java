@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RegisterTest {
     Register testRegister;
-    double changeInRegister = 1000;
-    double paidAmount = 100;
+    final double changeInRegister = 1000;
+    final double paidAmount = 100;
     double priceForThePurchase;
     ChangeDTO changeInformation;
     PurchaseDTO purchaseInfo;

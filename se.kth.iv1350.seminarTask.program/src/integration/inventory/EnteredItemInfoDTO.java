@@ -4,8 +4,8 @@ package integration.inventory;
  * This class is the information entered by the cashier when registering items.
  */
 public class EnteredItemInfoDTO {
-    private int identifier;
-    private int quantity;
+    private final int identifier;
+    private final int quantity;
 
 
     /**

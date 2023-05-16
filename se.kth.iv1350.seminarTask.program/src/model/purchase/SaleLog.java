@@ -14,7 +14,7 @@ class SaleLog {
     private final TotalPrice runningTotal;
     private final TotalVAT totalVAT;
 
-    private ArrayList<RegisteredItem> listOfRegisteredItems;
+    private final ArrayList<RegisteredItem> listOfRegisteredItems;
 
 
     /**

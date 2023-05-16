@@ -37,7 +37,6 @@ public class Payment {
             this.receipt = new ReceiptDTO(purchaseInformation, this.change);
             this.paymentInfo = new PaymentDTO(this.receipt, amountInReg);
 
-
         }
 
 

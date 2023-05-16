@@ -1,5 +1,6 @@
 package integration.inventory;
 
+import integration.FailedToConnectToDatabaseException;
 import model.purchase.PurchaseDTO;
 import model.purchase.RegisteredItem;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  */
 public class InventoryHandler {
 
-    private ArrayList<RegisteredItem> itemsInInventory;
+    private final ArrayList<RegisteredItem> itemsInInventory;
 
 
     /**
@@ -30,12 +31,12 @@ public class InventoryHandler {
      * @param registeredItemInfo - is the entered item identifier and the wanted quantity of this item.
      * @return - returns an ItemDTO with information about the item if available. else returns null
      */
-    public ItemDTO fetchItemFromInventory(EnteredItemInfoDTO registeredItemInfo){
+    public ItemDTO fetchItemFromInventory(EnteredItemInfoDTO registeredItemInfo)
+            throws InvalidItemIdentifierException, FailedToConnectToDatabaseException {
+
+        connectToExternalInventory();
 
         int indexForSelectedItem =  findIndexForItem(registeredItemInfo.getIdentifier());
-        if ( indexForSelectedItem == -1)
-            return null;
-
         boolean itemsInStock = verifyItemAvailability(indexForSelectedItem, registeredItemInfo.getQuantity());
         ItemDTO selectedItem = null;
         if (itemsInStock) {
@@ -43,6 +44,15 @@ public class InventoryHandler {
             removeFromInventory(indexForSelectedItem, registeredItemInfo.getQuantity());
         }
         return selectedItem;
+    }
+
+
+
+    private void connectToExternalInventory() throws FailedToConnectToDatabaseException {
+        boolean serverIsDown = true;
+
+        if (serverIsDown)
+            throw new FailedToConnectToDatabaseException("External Inventory is not online");
     }
 
 
@@ -74,11 +84,16 @@ public class InventoryHandler {
      * @param requestedItemIdentifier - the provided item identifier from the view
      * @return - returns the index containing a matching identifier.
      */
-    private  int findIndexForItem(int requestedItemIdentifier){
+    private  int findIndexForItem(int requestedItemIdentifier) throws InvalidItemIdentifierException{
         int indexForFoundItem = -1;
         for (int i = 0; i < itemsInInventory.size(); i++) {
             if (itemsInInventory.get(i).getItem().getIdentifier() == requestedItemIdentifier)
                 indexForFoundItem = i;
+        }
+
+        if (indexForFoundItem == -1) {
+            throw new InvalidItemIdentifierException(
+                    "The identifier \""+requestedItemIdentifier+"\" is not valid");
         }
         return indexForFoundItem;
     }
