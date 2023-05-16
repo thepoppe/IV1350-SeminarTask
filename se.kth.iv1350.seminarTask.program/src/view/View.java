@@ -25,6 +25,8 @@ public class View {
     }
 
 
+
+    //This is a test change for the new branch
     /**
      * method simulates a purchase following the flow from seminar 1
      */
