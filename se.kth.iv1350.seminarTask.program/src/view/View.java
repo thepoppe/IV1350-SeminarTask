@@ -1,7 +1,9 @@
 package view;
 
 import controller.Controller;
+import integration.FailedToConnectToDatabaseException;
 import integration.inventory.EnteredItemInfoDTO;
+import integration.inventory.InvalidItemIdentifierException;
 import integration.inventory.ItemDTO;
 import model.payment.ChangeDTO;
 import model.payment.ReceiptDTO;
@@ -61,7 +63,7 @@ public class View {
             printReceipt(receipt);
         }
         catch (Exception e){
-            e.printStackTrace();
+            exceptionLog.storeExceptionToFile(e);
         }
 
     }
@@ -83,7 +85,7 @@ public class View {
     }
 
 
-    private void simulateScanningItems(EnteredItemInfoDTO[] itemsToScan){
+    private void simulateScanningItems(EnteredItemInfoDTO[] itemsToScan) throws FailedToConnectToDatabaseException, InvalidItemIdentifierException {
         for (EnteredItemInfoDTO scannedItem :itemsToScan) {
             PurchaseDTO purchaseInformation = this.controller.enterItemInfo(scannedItem);
             showOnScreen(purchaseInformation);
@@ -104,7 +106,7 @@ public class View {
     private EnteredItemInfoDTO[] createCustomerBasket(){
 
         return new EnteredItemInfoDTO[]{
-                new EnteredItemInfoDTO(9,2),
+                new EnteredItemInfoDTO(10,2),
                 new EnteredItemInfoDTO(8,1),
                 new EnteredItemInfoDTO(9,1)
         };

@@ -49,7 +49,7 @@ public class InventoryHandler {
 
 
     private void connectToExternalInventory() throws FailedToConnectToDatabaseException {
-        boolean serverIsDown = true;
+        boolean serverIsDown = false;
 
         if (serverIsDown)
             throw new FailedToConnectToDatabaseException("External Inventory is not online");

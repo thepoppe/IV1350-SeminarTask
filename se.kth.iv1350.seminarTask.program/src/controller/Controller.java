@@ -1,5 +1,6 @@
  package controller;
 import integration.ExternalHandlerCreator;
+import integration.FailedToConnectToDatabaseException;
 import integration.inventory.InvalidItemIdentifierException;
 import integration.payment.AccountingHandler;
 import integration.discounts.DiscountDTO;
@@ -60,18 +61,12 @@ import java.util.ArrayList;
      * @param registeredItemInformation - EnteredItemDTO containing the selected identifier and the quantity of this item
      * @return - returns a PurchaseDTO with information about the purchase
      */
-    public PurchaseDTO enterItemInfo(EnteredItemInfoDTO registeredItemInformation) {
-        try {
-            ItemDTO collectedItem = inventoryHandler.fetchItemFromInventory(registeredItemInformation);
-            currentPurchase.addItemToPurchase(collectedItem, registeredItemInformation.getQuantity());
-            return currentPurchase.getPurchaseDTO();
-        }
-        catch (InvalidItemIdentifierException e) {
-            throw new RuntimeException(e);
-        }
-        catch (Exception e){
-            throw new RuntimeException(e);
-        }
+    public PurchaseDTO enterItemInfo(EnteredItemInfoDTO registeredItemInformation)
+            throws FailedToConnectToDatabaseException, InvalidItemIdentifierException {
+        ItemDTO collectedItem = inventoryHandler.fetchItemFromInventory(registeredItemInformation);
+        currentPurchase.addItemToPurchase(collectedItem, registeredItemInformation.getQuantity());
+        return currentPurchase.getPurchaseDTO();
+
 
     }
 

@@ -10,7 +10,7 @@ public class ExceptionLog {
     private final PrintWriter printer;
 
     public ExceptionLog() throws IOException{
-        printer = new PrintWriter(new FileWriter(file_name));
+        printer = new PrintWriter(new FileWriter(file_name,true),true);
 
     }
 

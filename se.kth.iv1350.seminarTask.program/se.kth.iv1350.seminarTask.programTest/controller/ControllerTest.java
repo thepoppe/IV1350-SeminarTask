@@ -1,6 +1,7 @@
 package controller;
 
 import integration.ExternalHandlerCreator;
+import integration.FailedToConnectToDatabaseException;
 import integration.inventory.EnteredItemInfoDTO;
 import integration.inventory.ItemDTO;
 import model.payment.ChangeDTO;
@@ -31,7 +32,7 @@ class ControllerTest {
 
 
     @Test
-    void enterValidItemInfo() {
+    void enterValidItemInfo() throws FailedToConnectToDatabaseException {
         controllerTest.startSale();
         PurchaseDTO info = controllerTest.enterItemInfo(new EnteredItemInfoDTO(10,1));
         assertNotNull(info, "valid identifier returns null");
@@ -77,7 +78,7 @@ class ControllerTest {
 
     //Cant be tested no access due to encapsulation. View cant access the accountingSystem from controller
     @Test
-    void shareInformationWithExternalSystemsTest() {
+    void shareInformationWithExternalSystemsTest() throws FailedToConnectToDatabaseException {
         controllerTest.startSale();
         PurchaseDTO info = controllerTest.enterItemInfo(new EnteredItemInfoDTO(10,1));
         ChangeDTO change = controllerTest.enterPayment(100);
