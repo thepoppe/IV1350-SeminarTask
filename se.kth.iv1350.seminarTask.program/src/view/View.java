@@ -70,10 +70,13 @@ public class View {
             simulatePayingLessThanPrice();
             simulateGeneratingMoreChangeThanAvailable();
 
+            System.out.println("Paying for the goods...");
             simulatePayment(200);
             printReceipt(controller.collectReceipt());
 
+            System.out.println("The Purchase ends");
             controller.endSale();
+
         }
         catch (PurchaseException e){
             System.out.println(e.getMessage());
@@ -192,7 +195,7 @@ public class View {
 
 
     private void showOnScreen(ChangeDTO change){
-        System.out.printf("Change: %.2f\n",change.getAmount());
+        System.out.printf("Change to give to customer: %.2f\n",change.getAmount());
 
     }
 
