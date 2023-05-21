@@ -4,6 +4,7 @@ package integration.payment;
 import integration.inventory.ItemDTO;
 import model.payment.Payment;
 import model.payment.PaymentDTO;
+import model.payment.PaymentException;
 import model.purchase.Purchase;
 import model.purchase.PurchaseDTO;
 import org.junit.jupiter.api.AfterEach;
@@ -17,7 +18,7 @@ class AccountingHandlerTest {
     AccountingHandler accountingHandler;
     PaymentDTO paymentInfo;
     @BeforeEach
-    void setUp() {
+    void setUp() throws PaymentException {
         accountingHandler = new AccountingHandler();
         double regAmount = accountingHandler.getRegisterAmount();
         Payment testPayment = new Payment(regAmount);

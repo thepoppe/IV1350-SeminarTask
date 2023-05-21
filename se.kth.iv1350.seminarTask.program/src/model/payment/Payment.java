@@ -25,20 +25,21 @@ public class Payment {
     /**
      * The public interface for handling payments. Sends the payment information to the correct class within
      * the model package.
-     * @param paidAmount - the amount paid by the customer
-     * @param purchaseInformation - a purchaseDTO containing all information about the purchase
+     * @param paidAmount the amount paid by the customer
+     * @param purchaseInformation a purchaseDTO containing all information about the purchase
+     * @throws PaymentException if payment is less than the price
      */
-    public void paymentForItems(double paidAmount, PurchaseDTO purchaseInformation) {
+    public void paymentForItems(double paidAmount, PurchaseDTO purchaseInformation) throws PaymentException {
 
-        if (paidAmount >= purchaseInformation.getRunningTotal()) {
-            this.change = new ChangeDTO(paidAmount, purchaseInformation);
-            register.updateRegister(this.change, paidAmount);
-            double amountInReg = register.getRegisterAmount();
-            this.receipt = new ReceiptDTO(purchaseInformation, this.change);
-            this.paymentInfo = new PaymentDTO(this.receipt, amountInReg);
-
+        if (paidAmount < purchaseInformation.getRunningTotal()) {
+            throw new PaymentException(String.format("Given payment \"%.2f\" is less than requested amount \"%.2f\"\n",
+                    paidAmount, purchaseInformation.getRunningTotal()));
         }
-
+        this.change = new ChangeDTO(paidAmount, purchaseInformation);
+        register.updateRegister(this.change, paidAmount);
+        double amountInReg = register.getRegisterAmount();
+        this.receipt = new ReceiptDTO(purchaseInformation, this.change);
+        this.paymentInfo = new PaymentDTO(this.receipt, amountInReg);
 
     }
 

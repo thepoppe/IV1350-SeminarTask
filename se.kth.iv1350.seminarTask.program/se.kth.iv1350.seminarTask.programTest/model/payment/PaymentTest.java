@@ -28,7 +28,7 @@ class PaymentTest {
     }
 
     @Test
-    void paymentForItems() {
+    void paymentForItems() throws PaymentException {
         testPayment.paymentForItems(amountPaidByCustomer, purchaseInfo);
         double expectedChange = 90;
         double actualChange = testPayment.getChange().getAmount();

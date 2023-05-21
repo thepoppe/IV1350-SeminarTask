@@ -1,23 +1,28 @@
 package controller;
 
+import model.payment.PaymentException;
+import observer.PurchaseObserver;
 import integration.ExternalHandlerCreator;
-import integration.FailedToConnectToDatabaseException;
 import integration.inventory.EnteredItemInfoDTO;
 import integration.inventory.ItemDTO;
+import integration.inventory.ItemNotAvailableException;
 import model.payment.ChangeDTO;
 import model.purchase.RegisteredItem;
 import model.purchase.PurchaseDTO;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ControllerTest {
 
     Controller controllerTest;
     @BeforeEach
-    void setUp() {
-        controllerTest = new Controller(new ExternalHandlerCreator());
+    void setUp() throws IOException {
+        controllerTest = new Controller(new ExternalHandlerCreator(), new PurchaseObserver());
         RegisteredItem[] testInventory = {new RegisteredItem(new ItemDTO(10,"Test",10,0),10)};
         controllerTest.createTestInventory(testInventory);
         controllerTest.createTestDiscount(1000,10,5);
@@ -32,21 +37,28 @@ class ControllerTest {
 
 
     @Test
-    void enterValidItemInfo() throws FailedToConnectToDatabaseException {
+    void enterValidItemInfo() throws PurchaseException, ItemNotAvailableException {
         controllerTest.startSale();
         PurchaseDTO info = controllerTest.enterItemInfo(new EnteredItemInfoDTO(10,1));
         assertNotNull(info, "valid identifier returns null");
     }
     @Test
-    void enterNotValidItemInfo() {
+    void enterNotValidItemInfo() throws PurchaseException {
+        boolean correctExceptionThrown = false;
+        try{
         controllerTest.startSale();
         PurchaseDTO info = controllerTest.enterItemInfo(new EnteredItemInfoDTO(1,1));
-        assertNull(info, "null not returned for invalid identifier");
+        }
+        catch( ItemNotAvailableException exc){
+            correctExceptionThrown = true;
+
+        }
+        assertTrue(correctExceptionThrown, "An invalid item identifier did not result in an ItemNotAvailableException");
     }
 
 
     @Test
-    void requestDiscountValidCustomer() {
+    void requestDiscountValidCustomer() throws PurchaseException, ItemNotAvailableException {
         controllerTest.startSale();
         PurchaseDTO info = controllerTest.enterItemInfo(new EnteredItemInfoDTO(10,1));
         double priceBeforeDiscount = info.getRunningTotal();
@@ -56,7 +68,7 @@ class ControllerTest {
     }
 
     @Test
-    void requestDiscountNotValidCustomer() {
+    void requestDiscountNotValidCustomer() throws PurchaseException, ItemNotAvailableException {
         controllerTest.startSale();
         PurchaseDTO info = controllerTest.enterItemInfo(new EnteredItemInfoDTO(10,1));
         double priceBeforeDiscount = info.getRunningTotal();
@@ -66,7 +78,7 @@ class ControllerTest {
     }
 
     @Test
-    void enterPayment() {
+    void enterPayment() throws PurchaseException, ItemNotAvailableException, PaymentException {
         controllerTest.startSale();
         PurchaseDTO info = controllerTest.enterItemInfo(new EnteredItemInfoDTO(10,1));
         ChangeDTO change = controllerTest.enterPayment(100);
@@ -78,12 +90,25 @@ class ControllerTest {
 
     //Cant be tested no access due to encapsulation. View cant access the accountingSystem from controller
     @Test
-    void shareInformationWithExternalSystemsTest() throws FailedToConnectToDatabaseException {
+    void shareInformationWithExternalSystemsTest() throws PurchaseException, ItemNotAvailableException, PaymentException {
         controllerTest.startSale();
         PurchaseDTO info = controllerTest.enterItemInfo(new EnteredItemInfoDTO(10,1));
         ChangeDTO change = controllerTest.enterPayment(100);
-        controllerTest.shareInformationWithExtSystems();
+        controllerTest.endSale();
 
     }
+     @Test
+    void testTheUIDisplayException() throws ItemNotAvailableException {
+
+        String expectedMessageToView = "Something went wrong with the request, contact support.\n";
+         try {
+             controllerTest.enterItemInfo(new EnteredItemInfoDTO(-1, 1));
+         } catch (PurchaseException e) {
+             assertEquals(expectedMessageToView,e.getMessage(),"The incorrect error message is sent to the view");
+         }
+
+     }
+
+
 
 }

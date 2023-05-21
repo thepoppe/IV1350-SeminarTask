@@ -47,7 +47,7 @@ class SaleLog {
 
     /**
      * Getter for totalVAT which is an instance of TotalVAT
-     * @return - returns the instance totalVAT
+     * @return returns the instance totalVAT
      */
     TotalVAT getTotalVAT() {
         return totalVAT;
@@ -56,8 +56,8 @@ class SaleLog {
 
     /**
      * addItemToSaleLog adds the registered item to the ArrayList and updates the price and total VAT
-     * @param itemToAdd - refers to the item collected from inventory
-     * @param quantityOfItemToAdd - refers to the quantity of the wanted item
+     * @param itemToAdd refers to the item collected from inventory
+     * @param quantityOfItemToAdd refers to the quantity of the wanted item
      */
     void addItemToSaleLog(ItemDTO itemToAdd, int quantityOfItemToAdd) {
 
@@ -71,8 +71,8 @@ class SaleLog {
     /**
      * private helper method to find the index of an item in the array list. If identifier is not found a new
      * ItemWithQuantity is created and added to the List.
-     * @param itemToAdd - refers to the item collected from inventory
-     * @return - returns the index of the added item.
+     * @param itemToAdd refers to the item collected from inventory
+     * @return returns the index of the added item.
      */
     private int findItemIndex(ItemDTO itemToAdd){
         boolean itemIsRegistered = false;
@@ -84,10 +84,7 @@ class SaleLog {
             else indexOfItemToAdd++;
         }
 
-        if (!itemIsRegistered && listOfRegisteredItems.size() > 0)
-            listOfRegisteredItems.add(new RegisteredItem(itemToAdd));
-
-        else if(!itemIsRegistered)
+        if(!itemIsRegistered)
             listOfRegisteredItems.add(new RegisteredItem(itemToAdd));
 
         return indexOfItemToAdd;
@@ -96,8 +93,8 @@ class SaleLog {
 
     /**
      * private helper method to update quantity of a registered Item in the list
-     * @param indexOfSelectedItem - the index in the List of the item to be updated
-     * @param quantityOfSelectedItem - the quantity to increase with
+     * @param indexOfSelectedItem the index in the List of the item to be updated
+     * @param quantityOfSelectedItem the quantity to increase with
      */
     private void updateQuantity(int indexOfSelectedItem, int quantityOfSelectedItem){
         listOfRegisteredItems.get(indexOfSelectedItem).addToQuantity(quantityOfSelectedItem);
@@ -106,8 +103,8 @@ class SaleLog {
 
     /**
      * Updates the price and the total Vat with the cost for the added items.
-     * @param itemToAdd - the item to be added
-     * @param quantityOfItemToAdd - the quantity of the item
+     * @param itemToAdd the item to be added
+     * @param quantityOfItemToAdd the quantity of the item
      */
     private void updatePriceInfo(ItemDTO itemToAdd,int quantityOfItemToAdd){
         runningTotal.addItemPrice(itemToAdd, quantityOfItemToAdd);
@@ -117,7 +114,7 @@ class SaleLog {
 
     /**
      * adds the collected discount to the registered items
-     * @param discounts - discounts refers to a list of discount collected by DiscountHandler.
+     * @param discounts discounts refers to a list of discount collected by DiscountHandler.
      */
     void addDiscountToSaleLog(ArrayList<DiscountDTO> discounts) {
         setDiscountOnItems(discounts);
@@ -126,11 +123,10 @@ class SaleLog {
 
 
     /**
-     /**
      * searches through all the items in the ArrayList. If the identifier provided by the discount list
      * is equal to one of the identifiers in the list of item. that item's discount attribute is updated.
      *
-     * @param discounts - discounts refers to a list of discount collected by DiscountHandler.
+     * @param discounts discounts refers to a list of discount collected by DiscountHandler.
      */
     private void setDiscountOnItems(ArrayList<DiscountDTO> discounts){
         for (DiscountDTO discountOnItem: discounts) {
@@ -144,7 +140,7 @@ class SaleLog {
 
     /**
      * This method updates the total price and the total vat with the lower price if a discount is set
-     * @param listOfRegisteredItems - the list of all registered items
+     * @param listOfRegisteredItems the list of all registered items
      */
     private void updatePriceAfterDiscount(ArrayList<RegisteredItem> listOfRegisteredItems){
         runningTotal.updatePriceAfterDiscounts(listOfRegisteredItems);

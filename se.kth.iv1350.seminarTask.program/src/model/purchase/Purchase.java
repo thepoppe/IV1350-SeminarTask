@@ -1,7 +1,10 @@
 package model.purchase;
 
+import observer.PurchaseObserver;
 import integration.discounts.DiscountDTO;
 import integration.inventory.ItemDTO;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -12,6 +15,7 @@ public class Purchase {
 
     private final SaleLog saleLog;
     private PurchaseDTO purchaseInformation;
+    private TotalRevenueFileOutput totalIncomeFileWriter;
 
 
     /**
@@ -21,11 +25,23 @@ public class Purchase {
         this.saleLog = new SaleLog();
     }
 
+    /**
+     * overloaded constructor to add the observer functionality for total revenue
+     * @param theObserver the class containing the list of observers
+     * @throws IOException is thrown if the TotalRevenueFileOutput cant be created
+     */
+    public Purchase(PurchaseObserver theObserver) throws IOException{
+
+        this.totalIncomeFileWriter = new TotalRevenueFileOutput();
+        theObserver.addObserver(this.totalIncomeFileWriter);
+        this.saleLog = new SaleLog();
+    }
+
 
 
     /**
      * getter for the PurchaseDTO
-     * @return - returns a PurchaseDTO
+     * @return a PurchaseDTO
      */
     public PurchaseDTO getPurchaseDTO() {
         return this.purchaseInformation;
@@ -35,8 +51,8 @@ public class Purchase {
     /**
      * addItemToPurchase is the public interface for adding an Item to the current purchase. The
      * method then gives information to the correct Classes within the model package.
-     * @param itemToAdd - the item that is added collected from inventory System
-     * @param quantityOfItem - the quantity of the item to be added
+     * @param itemToAdd the item that is added collected from inventory System
+     * @param quantityOfItem the quantity of the item to be added
      */
     public void addItemToPurchase(ItemDTO itemToAdd, int quantityOfItem){
         saleLog.addItemToSaleLog(itemToAdd, quantityOfItem);
@@ -46,7 +62,7 @@ public class Purchase {
 
     /**
      * adds the collected Discount to the saleLog
-     * @param discounts - a list of DiscountDTO collected from DiscountHandler
+     * @param discounts a list of DiscountDTO collected from DiscountHandler
      */
     public void addDiscount(ArrayList<DiscountDTO> discounts) {
         saleLog.addDiscountToSaleLog(discounts);

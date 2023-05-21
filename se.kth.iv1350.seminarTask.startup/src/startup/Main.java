@@ -1,5 +1,6 @@
 package startup;
 
+import observer.PurchaseObserver;
 import integration.ExternalHandlerCreator;
 import view.View;
 import controller.Controller;
@@ -11,9 +12,11 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         ExternalHandlerCreator extCreator = new ExternalHandlerCreator();
-        Controller controller = new Controller(extCreator);
-
-        new View(controller).purchaseSimulation();
+        PurchaseObserver totalRevenueObserver = new PurchaseObserver();
+        Controller controller = new Controller(extCreator, totalRevenueObserver);
+        View view = new View(controller);
+        for (int i= 0; i < 2;i++)
+            view.purchaseSimulation();
     }
 }
 

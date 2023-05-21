@@ -10,8 +10,8 @@ public class EnteredItemInfoDTO {
 
     /**
      * Constructor, creates an instance of the class EnteredITemInfoDTO
-     * @param identifier - the entered identifier
-     * @param quantity - the entered quantity
+     * @param identifier the entered identifier
+     * @param quantity the entered quantity
      */
     public EnteredItemInfoDTO(int identifier, int quantity){
         this.identifier = identifier;
@@ -21,7 +21,7 @@ public class EnteredItemInfoDTO {
 
     /**
      * getter for the provided identifier
-     * @return - an integer representing the identifier
+     * @return an integer representing the identifier
      */
     public int getIdentifier() {
         return identifier;
@@ -30,7 +30,7 @@ public class EnteredItemInfoDTO {
 
     /**
      * getter for quantity wanted by customer
-     * @return - an integer representing the quantity wanted
+     * @return an integer representing the quantity wanted
      */
     public int getQuantity() {
         return quantity;

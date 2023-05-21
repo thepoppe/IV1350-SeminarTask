@@ -10,7 +10,6 @@ import java.util.ArrayList;
  * the database.
  */
 public class DiscountHandler {
-
     private ArrayList<Integer> eligibleCustomers;
     private ArrayList<DiscountDTO> availableDiscounts;
 

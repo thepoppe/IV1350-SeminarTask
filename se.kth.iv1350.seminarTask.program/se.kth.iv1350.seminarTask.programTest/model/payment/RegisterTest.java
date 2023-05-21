@@ -34,7 +34,7 @@ class RegisterTest {
     }
 
     @Test
-    void updateRegister() {
+    void updateRegister() throws PaymentException {
         double amountBeforePayment = testRegister.getRegisterAmount();
         testRegister.updateRegister(changeInformation,paidAmount);
         double amountAfterPayment = testRegister.getRegisterAmount();

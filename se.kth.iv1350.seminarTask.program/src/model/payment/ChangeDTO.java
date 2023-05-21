@@ -7,7 +7,7 @@ import model.purchase.PurchaseDTO;
  */
 public class ChangeDTO {
 
-    final double amount;
+    private final double amount;
 
     /**
      * Constructor for the class ChangeDTO

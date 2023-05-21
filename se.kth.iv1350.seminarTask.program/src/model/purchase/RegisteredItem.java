@@ -3,8 +3,8 @@ package model.purchase;
 import integration.inventory.ItemDTO;
 
 /**
- * The class RegisteredItem is a class that consist of the Item information collected from the inventory and
- * the quantity of this item. The item information is immutable but quantity and discount on the item can be changed
+ * The class RegisteredItem consist of the Item information collected from the inventory and the quantity of
+ * this item. The item information is immutable but quantity and discount on the item can be changed
  */
 public class RegisteredItem {
 
@@ -15,7 +15,7 @@ public class RegisteredItem {
 
     /**
      * Creates an instance of ItemWithQuantity
-     * @param item - the item information
+     * @param item the item information
      */
     public RegisteredItem(ItemDTO item){
         this.item = item;
@@ -25,8 +25,8 @@ public class RegisteredItem {
 
     /**
      * Creates an instance of a ItemWithQuantity with a specific quantity
-     * @param item - the item information
-     * @param quantity - the quantity of items registered
+     * @param item the item information
+     * @param quantity the quantity of items registered
      */
     public RegisteredItem(ItemDTO item, int quantity){
         this.item = item;
@@ -36,7 +36,7 @@ public class RegisteredItem {
 
     /**
      * getter for item Information
-     * @return - returns a ItemDTO containing unchangeable information about the item
+     * @return returns a ItemDTO containing unchangeable information about the item
      */
     public ItemDTO getItem() {
         return item;
@@ -45,7 +45,7 @@ public class RegisteredItem {
 
     /**
      * getter for the current quantity
-     * @return - returns an integer representing the quantity
+     * @return returns an integer representing the quantity
      */
     public int getQuantity() {
         return quantity;
@@ -54,7 +54,7 @@ public class RegisteredItem {
 
     /**
      * updates the quantity of the selected Item
-     * @param quantityToAdd - is the amount of entities to be added to the quantity parameter
+     * @param quantityToAdd is the amount of entities to be added to the quantity parameter
      */
     public void addToQuantity(int quantityToAdd) {
         this.quantity += quantityToAdd;
@@ -63,7 +63,7 @@ public class RegisteredItem {
 
     /**
      * updates the discount amount for the item
-     * @param discountToAdd - is the amount to add to the discount
+     * @param discountToAdd is the amount to add to the discount
      */
     void setDiscount(double discountToAdd) {
         this.discount = discountToAdd;
@@ -71,7 +71,7 @@ public class RegisteredItem {
 
     /**
      * getter for discount
-     * @return - returns a double of the amount of discount for the item
+     * @return returns a double of the amount of discount for the item
      */
     public double getDiscount() {
         return discount;
@@ -81,18 +81,23 @@ public class RegisteredItem {
     /**
      * removeFromQuantity is an added method to update the hardcoded stock inventory.
      * @param quantityToRemove -  is the quantity to withdraw from the current quantity
+     * @throws IllegalArgumentException if quantityToRemove is larger than the quantity available or less than 0
      */
     public void removeFromQuantity(int quantityToRemove){
-        if (this.quantity > 0)
-            this.quantity -= quantityToRemove;
-        //else exception
+        if (quantityToRemove <=0)
+            throw new IllegalArgumentException("Cannot remove negative quantity");
+        if (this.quantity < quantityToRemove){
+            throw new IllegalArgumentException("A quantity greater than the current quantity cant be removed");
+        }
+        this.quantity -= quantityToRemove;
+
     }
 
 
     /**
      * Compares the identifier of two instances of the class ItemWithQuantity
-     * @param itemToBeCompared - the item that is compared to this item.
-     * @return - returns a boolean.
+     * @param itemToBeCompared the item that is compared to this item.
+     * @return returns a boolean.
      */
     public boolean isEqualTo(RegisteredItem itemToBeCompared) {
         return this.item.getIdentifier() == itemToBeCompared.getItem().getIdentifier();
