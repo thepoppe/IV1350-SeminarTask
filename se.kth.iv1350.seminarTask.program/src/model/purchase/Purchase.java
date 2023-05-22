@@ -1,5 +1,6 @@
 package model.purchase;
 
+import model.TotalRevenueFileOutput;
 import observer.PurchaseObserver;
 import integration.discounts.DiscountDTO;
 import integration.inventory.ItemDTO;
@@ -15,7 +16,6 @@ public class Purchase {
 
     private final SaleLog saleLog;
     private PurchaseDTO purchaseInformation;
-    private TotalRevenueFileOutput totalIncomeFileWriter;
 
 
     /**
@@ -24,19 +24,6 @@ public class Purchase {
     public Purchase(){
         this.saleLog = new SaleLog();
     }
-
-    /**
-     * overloaded constructor to add the observer functionality for total revenue
-     * @param theObserver the class containing the list of observers
-     * @throws IOException is thrown if the TotalRevenueFileOutput cant be created
-     */
-    public Purchase(PurchaseObserver theObserver) throws IOException{
-
-        this.totalIncomeFileWriter = new TotalRevenueFileOutput();
-        theObserver.addObserver(this.totalIncomeFileWriter);
-        this.saleLog = new SaleLog();
-    }
-
 
 
     /**

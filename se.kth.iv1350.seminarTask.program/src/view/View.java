@@ -20,7 +20,7 @@ public class View {
 
     private final Controller controller;
     private final ExceptionLogger exceptionLogger;
-    private final TotalRevenueView incomeSubscriberToView;
+    private final TotalRevenueView incomeSubscriberInView;
 
 
     /**
@@ -31,7 +31,7 @@ public class View {
 
         this.controller = controller;
         this.exceptionLogger = new ExceptionLogger();
-        this.incomeSubscriberToView = new TotalRevenueView();
+        this.incomeSubscriberInView = new TotalRevenueView();
     }
 
 
@@ -43,11 +43,11 @@ public class View {
         try {
             System.out.println("A purchase is starting...\n");
 
-            controller.startSale(this.incomeSubscriberToView);
+            controller.startSale(this.incomeSubscriberInView);
 
 
             try{
-            controller.startSale(this.incomeSubscriberToView);}
+            controller.startSale(this.incomeSubscriberInView);}
             catch(Exception e){
                 System.out.println("Trying to start another sale before current is done...");
                 System.out.println(e.getMessage());

@@ -1,6 +1,6 @@
 package view;
 
-import model.purchase.RevenueObserver;
+import model.RevenueObserver;
 
 public class TotalRevenueView implements RevenueObserver {
     @Override

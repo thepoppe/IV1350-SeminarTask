@@ -1,4 +1,6 @@
-package model.purchase;
+package model;
+
+import model.RevenueObserver;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,7 +9,7 @@ import java.io.PrintWriter;
 /**
  * Subscriber to the PurchaseObserver that prints the revenue to a log
  */
-public class TotalRevenueFileOutput implements RevenueObserver{
+public class TotalRevenueFileOutput implements RevenueObserver {
     private static final String file_name = "Sale_process_income.txt";
     private final PrintWriter printer;
 

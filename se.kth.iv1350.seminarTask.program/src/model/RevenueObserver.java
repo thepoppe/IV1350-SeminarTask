@@ -1,4 +1,4 @@
-package model.purchase;
+package model;
 
 /**
  * Interface for classes to be observed
