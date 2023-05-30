@@ -208,7 +208,8 @@ public class View {
                     (item.getItem().getPrice()-item.getDiscount()) +"kr"+
                     "\t" + item.getQuantity()+" pcs\n");
         }
-        System.out.printf("Total Price: %.2f\n", receipt.getRunningTotal());
+        System.out.printf("Total Price: " +
+                "\n", receipt.getRunningTotal());
         System.out.printf("Total VAT: %.2f\n", receipt.getTotalVAT());
         System.out.printf("Change: %.2f\n\n", receipt.getChange());
 
