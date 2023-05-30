@@ -1,18 +1,18 @@
 package observer;
 
-import model.purchase.RevenueObserver;
+import model.RevenueObserver;
 
 import java.util.ArrayList;
 
 public class PurchaseObserver  {
-    private ArrayList<RevenueObserver> allObservers= new ArrayList<>();
+    private ArrayList<RevenueObserver> allSubscribers = new ArrayList<>();
     private double totalRevenue = 0;
 
     public void addObserver(RevenueObserver observer){
-        allObservers.add(observer);
+        allSubscribers.add(observer);
     }
     public void removeAllObserver() {
-            allObservers.clear();
+            allSubscribers.clear();
     }
 
     public void performPurchase(double amount){
@@ -20,8 +20,8 @@ public class PurchaseObserver  {
         callAllObservers(totalRevenue);
     }
     private void callAllObservers(double newRevenue){
-        for (RevenueObserver observer : allObservers) {
-            observer.updateTotalRevenue(newRevenue);
+        for (RevenueObserver currentSubscriber : allSubscribers) {
+            currentSubscriber.updateTotalRevenue(newRevenue);
         }
     }
 

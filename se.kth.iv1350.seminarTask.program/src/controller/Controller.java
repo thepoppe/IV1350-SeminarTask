@@ -1,4 +1,6 @@
  package controller;
+
+import model.TotalRevenueFileOutput;
 import model.payment.*;
 import observer.PurchaseObserver;
 import integration.ExternalHandlerCreator;
@@ -26,29 +28,34 @@ import java.util.ArrayList;
     private Purchase currentPurchase;
     private Payment payment;
     private final ExceptionLogger exceptionLogger;
-    private final PurchaseObserver incomeObserver;
+    private final PurchaseObserver totalRevenuePublisher;
 
 
     /**
      * Constructor creates an instance of the class Controller
      * @param externalHandlerCreator contains instances of the external system handlers needed by the Controller
-     * @param observer the instance of the observer object created in main
+     * @param publisher the instance of the observer object created in main
      */
-    public Controller(ExternalHandlerCreator externalHandlerCreator, PurchaseObserver observer) throws IOException {
+    public Controller(ExternalHandlerCreator externalHandlerCreator, PurchaseObserver publisher) throws IOException {
 
         this.inventoryHandler = externalHandlerCreator.getInventoryHandler();
         this.discountHandler = externalHandlerCreator.getDiscountHandler();
         this.accounting = externalHandlerCreator.getAccountingHandler();
-        this.incomeObserver = observer;
+        this.totalRevenuePublisher = publisher;
         this.exceptionLogger = new ExceptionLogger();
     }
 
 
     /**
      * startSale create instances of the classes needed for a purchase
+     * @throws IllegalStateException if a new sale is started before the last one is closed
      */
     public void startSale(){
-
+        if(currentPurchase != null || payment != null) {
+            exceptionLogger.storeExceptionToFile(new IllegalStateException(
+                    "An instance of the class Purchase or Payment was re-initiated before the current sale was finished\n"));
+            throw new IllegalStateException("An error occurred with the request.\nContact support if problem remains\n");
+        }
         double registerAmount = accounting.getRegisterAmount();
         this.payment = new Payment(registerAmount);
         this.currentPurchase = new Purchase();
@@ -56,11 +63,13 @@ import java.util.ArrayList;
     }
 
      /**
+      /**
       * overloaded constructor that creates an instance of classes needed for a purchase with observers
-      * @param incomeToView the observer in the view
+      * @param incomeSubscriberInView the observer in the view
       * @throws IOException is thrown if the file writing observer cant be created in Purchase
+      * @throws IllegalStateException if a new sale is started before the last one is closed
       */
-     public void startSale(TotalRevenueView incomeToView) throws IOException {
+     public void startSale(TotalRevenueView incomeSubscriberInView) throws IOException,IllegalStateException{
          if(currentPurchase != null || payment != null){
              exceptionLogger.storeExceptionToFile(new IllegalStateException(
                      "An instance of the class Purchase or Payment was re-initiated before the current sale was finished\n"));
@@ -69,8 +78,9 @@ import java.util.ArrayList;
          }
          double registerAmount = accounting.getRegisterAmount();
          this.payment = new Payment(registerAmount);
-         this.currentPurchase = new Purchase(this.incomeObserver);
-         this.incomeObserver.addObserver(incomeToView);
+         this.currentPurchase = new Purchase();
+         this.totalRevenuePublisher.addObserver(incomeSubscriberInView);
+         this.totalRevenuePublisher.addObserver(new TotalRevenueFileOutput());
 
      }
 
@@ -79,7 +89,7 @@ import java.util.ArrayList;
       * enterItemInfo receives the wanted item identifier and quantity. The identifier and quantity is sent to
       * the inventoryHandler that returns the item information if available. The purchase is updated with the
       * new items and new purchase information is returned. If the database is offline a message is thrown to
-      * the user and a detailed message is logged for developers.
+      * the user and logs a more detailed message for developers.
       * @param registeredItemInformation EnteredItemDTO containing the selected identifier and the quantity of this item
       * @return returns a PurchaseDTO with information about the purchase
       * @throws PurchaseException is thrown if handler fails to connect to database
@@ -160,7 +170,7 @@ import java.util.ArrayList;
       * private function to clear the current purchase's observers
       */
      private void clearPurchaseObservers() {
-         this.incomeObserver.removeAllObserver();
+         this.totalRevenuePublisher.removeAllObserver();
      }
 
      /**
@@ -168,7 +178,7 @@ import java.util.ArrayList;
       */
      private void updateRevenueObservers() {
          PurchaseDTO purchaseInformation = currentPurchase.getPurchaseDTO();
-         incomeObserver.performPurchase(purchaseInformation.getRunningTotal());
+         totalRevenuePublisher.performPurchase(purchaseInformation.getRunningTotal());
      }
 
 

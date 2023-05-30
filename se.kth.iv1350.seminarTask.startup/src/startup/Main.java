@@ -12,8 +12,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         ExternalHandlerCreator extCreator = new ExternalHandlerCreator();
-        PurchaseObserver totalRevenueObserver = new PurchaseObserver();
-        Controller controller = new Controller(extCreator, totalRevenueObserver);
+        PurchaseObserver totalRevenuePublisher = new PurchaseObserver();
+        Controller controller = new Controller(extCreator, totalRevenuePublisher);
         View view = new View(controller);
         for (int i= 0; i < 2;i++)
             view.purchaseSimulation();
