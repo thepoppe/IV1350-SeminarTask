@@ -7,7 +7,7 @@ import java.util.Random;
  * It uses composition to extend specific features of Random.
  */
 public class RandomWithComposition {
-    private Random random;
+    private final Random random;
     public RandomWithComposition(){
         random = new Random();
     }

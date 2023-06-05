@@ -157,8 +157,7 @@ public class View {
     private void simulateCustomerRequestDiscount(boolean customerAskForDiscount, int customerId) {
 
         if (customerAskForDiscount) {
-            int customerID = customerId;
-            PurchaseDTO purchaseInformation = this.controller.requestDiscount(customerID);
+            PurchaseDTO purchaseInformation = this.controller.requestDiscount(customerId);
             showOnScreen(purchaseInformation);
         }
     }

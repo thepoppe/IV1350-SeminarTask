@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class RandomWithInheritance extends java.util.Random{
 
-    public RandomWithInheritance(){};
+    public RandomWithInheritance(){}
 
     /**
      * Creates a random number between the lower and upper bound, small adaption with inclusive upperbound

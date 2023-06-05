@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
     Main mainMethod;
-    String[] args = null;
+    final String[] args = null;
     private ByteArrayOutputStream outContent;
     private PrintStream originalSysOut;
     @org.junit.jupiter.api.BeforeEach
