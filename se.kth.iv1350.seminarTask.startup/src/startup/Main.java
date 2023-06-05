@@ -26,8 +26,8 @@ public class Main {
         System.out.println("RandomWithInheritance created this boolean:" + (testOfInheritedRandom));
 
 
-        view.purchaseSimulation(firstCustomerId);
-        view.purchaseSimulation(secondCustomerId);
+        view.purchaseSimulation(firstCustomerId,false);
+        view.purchaseSimulation(secondCustomerId,false);
     }
 }
 

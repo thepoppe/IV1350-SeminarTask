@@ -33,7 +33,7 @@ public class RandomWithComposition {
      */
     public int nextInt(List<Integer> takenNumbers, int lowerBound, int upperBound){
         while (true) {
-            int randomNumber = nextInt(lowerBound, upperBound);
+            int randomNumber = random.nextInt(lowerBound, upperBound+1);
             if (!takenNumbers.contains(randomNumber)) {
                 return randomNumber;
             }

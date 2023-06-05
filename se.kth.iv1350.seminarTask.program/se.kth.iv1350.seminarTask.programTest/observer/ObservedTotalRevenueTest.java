@@ -1,6 +1,7 @@
 package observer;
 
-import model.TotalRevenueFileOutput;
+import model.payment.PaymentException;
+import model.payment.TotalRevenueFileOutput;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,7 +30,7 @@ class ObservedTotalRevenueTest {
 
 
     @Test
-    void performPurchase() {
+    void performPurchase() throws PaymentException {
 
         observer.addObserver(viewOutput);
         observer.performPurchase(500);

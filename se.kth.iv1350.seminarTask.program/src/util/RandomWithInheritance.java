@@ -34,7 +34,7 @@ public class RandomWithInheritance extends java.util.Random{
      */
     public int nextInt(List<Integer> takenNumbers, int lowerBound, int upperBound){
         while (true) {
-            int randomNumber = nextInt(lowerBound, upperBound);
+            int randomNumber = super.nextInt(lowerBound, upperBound+1);
             if (!takenNumbers.contains(randomNumber)) {
                 return randomNumber;
             }

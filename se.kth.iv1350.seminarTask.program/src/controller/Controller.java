@@ -1,6 +1,6 @@
  package controller;
 
-import model.TotalRevenueFileOutput;
+import model.payment.TotalRevenueFileOutput;
 import model.payment.*;
 import observer.ObservedTotalRevenue;
 import integration.ExternalHandlerCreator;
@@ -156,8 +156,9 @@ import java.util.ArrayList;
 
      /**
       * endSale updates the observer, provides information to external systems and clears the temporary observers
+      * @throws PaymentException is thrown if the observer TotalRevenueFileOutput cant execute
       */
-     public void endSale() {
+     public void endSale() throws PaymentException {
          shareInformationWithExtSystems();
          updateRevenueObservers();
          clearPurchaseObservers();
@@ -175,8 +176,9 @@ import java.util.ArrayList;
 
      /**
       * notifies the observers to update the total revenue with the new income from the purchase
+      * @throws PaymentException is thrown if the observer TotalRevenueFileOutput cant execute
       */
-     private void updateRevenueObservers() {
+     private void updateRevenueObservers() throws PaymentException {
          PurchaseDTO purchaseInformation = currentPurchase.getPurchaseDTO();
          totalRevenuePublisher.performPurchase(purchaseInformation.getRunningTotal());
      }

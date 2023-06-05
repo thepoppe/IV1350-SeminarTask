@@ -1,6 +1,5 @@
-package model;
+package model.payment;
 
-import model.RevenueObserver;
 import util.ExceptionLogger;
 
 import java.io.FileWriter;
@@ -37,15 +36,26 @@ public class TotalRevenueFileOutput extends TotalIncomeTrackerTemplate {
     }
 
 
+    /**
+     * The specific task to be done when called by the publisher
+     * @param income the total income to be printed to the log file
+     * @throws Exception if code fails to execute
+     */
     @Override
     protected void doShowTotalIncome(double income) throws Exception {
         String message = createMessageToStore(income);
         printer.printf(message);
     }
 
+    /**
+     * The specific error handling when called by the publisher
+     * @param exceptions the registered exception that needs to be handled
+     * @throws PaymentException is thrown to the user if code fails to execute
+     */
     @Override
-    protected void handleExceptions(Exception exceptions) {
+    protected void handleExceptions(Exception exceptions) throws PaymentException {
         exceptionLogger.storeExceptionToFile(exceptions);
+        throw new PaymentException("There was an issue logging the revenue, contact support");
     }
 
     /**

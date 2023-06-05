@@ -36,9 +36,9 @@ class ViewTest {
     }
 
     @Test
-    void verifyOngoingPurchaseInfoToUser() {
+    void verifyOngoingPurchaseOutput() {
 
-        view.purchaseSimulation(1);
+        view.purchaseSimulation(1,true);
         String outputResult = outContent.toString();
         String purchaseInformationToUser =
                 "Information about the purchase:\n" +
@@ -46,19 +46,26 @@ class ViewTest {
                 "Apple, 9.0, 1pc\n" +
                 "Running total: 26,88\n" +
                 "Total VAT: 2,88";
-        String changeInformationToUSer = "Change to give to customer: 173,12";
-        String totalIncomeByObserver = "The total income is: 26,88";
+        String newPriceAfterDiscount =
+                "Information about the purchase:\n" +
+                        "Banana, 3.0, 3pc\n" +
+                        "Apple, 9.0, 1pc\n" +
+                        "Running total: 21,24\n" +
+                        "Total VAT: 2,16";
+        String changeInformationToUSer = "Change to give to customer: 178,76";
+        String totalIncomeByObserver = "The total income is: 21,24";
 
-        assertTrue(outputResult.contains(purchaseInformationToUser), "When entering items, the system does not print the information");
-        assertTrue(outputResult.contains(changeInformationToUSer), "After paying the system did not print information about what amount of change to give to customer");
+        assertTrue(outputResult.contains(purchaseInformationToUser), "When entering items, the system does not print the information about the item");
+        assertTrue(outputResult.contains(newPriceAfterDiscount), "After an eligible customer has asked for discount, the updated purchase information is not displayed");
+        assertTrue(outputResult.contains(changeInformationToUSer), "After paying the system does not print information about what amount of change to give to customer");
         assertTrue(outputResult.contains(totalIncomeByObserver),"The observer in the view did not print the total income");
 
     }
 
 
     @Test
-    void verifyExceptionToUserOutput(){
-        view.purchaseSimulation(1);
+    void verifyExceptionOutput(){
+        view.purchaseSimulation(1, false);
         String outputResult = outContent.toString();
         String databaseException = "An error occurred with the request.\nContact support if problem remains";
         String multipleSaleException = "Something went wrong with the request, contact support.";
@@ -79,8 +86,8 @@ class ViewTest {
     }
 
     @Test
-    void verifyReceiptOut(){
-        view.purchaseSimulation(1);
+    void verifyReceiptOutput(){
+        view.purchaseSimulation(1,false);
         String outputResult = outContent.toString();
         String firstLine = "Customer id:\t1";
         String secondLine = "Time of purchase:";

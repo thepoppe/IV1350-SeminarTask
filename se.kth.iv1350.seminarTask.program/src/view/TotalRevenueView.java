@@ -1,10 +1,12 @@
 package view;
 
-import model.RevenueObserver;
-import model.TotalIncomeTrackerTemplate;
+import model.payment.TotalIncomeTrackerTemplate;
 import util.ExceptionLogger;
 
 
+/**
+ * Observer class that prints the total income to the user
+ */
 public class TotalRevenueView extends TotalIncomeTrackerTemplate {
     private ExceptionLogger exceptionLogger;
 
@@ -23,10 +25,20 @@ public class TotalRevenueView extends TotalIncomeTrackerTemplate {
     }
 
 
+    /**
+     * The specific task to be done when called by the publisher
+     * @param income the total income to be displayed to the user
+     * @throws Exception if code fails to execute
+     */
     @Override
     protected void doShowTotalIncome(double income) throws Exception {
         System.out.printf("The total income is: %.2f", income);
     }
+
+    /**
+     * The specific error handling when called by the publisher
+     * @param exceptions the registered exception that needs to be handled
+     */
     @Override
     protected void handleExceptions(Exception exceptions) {
         System.out.println("An error occurred, try again");

@@ -1,4 +1,4 @@
-package model;
+package model.payment;
 
 /**
  * Abstract class for task 1 in higher grade tasks for the course iv1350.
@@ -10,15 +10,21 @@ public abstract class TotalIncomeTrackerTemplate implements RevenueObserver{
     /**
      * registers a new income and displays it
      * @param newIncome the registered income
+     * @throws PaymentException is thrown if the observer TotalRevenueFileOutput cant execute
      */
     @Override
-    public void updateTotalRevenue(double newIncome){
+    public void updateTotalRevenue(double newIncome) throws PaymentException {
         showTotalIncome(newIncome);
 
     }
 
 
-    private void showTotalIncome(double updatedIncome){
+    /**
+     * private method that tries to display yhe new total revenue
+     * @param updatedIncome the amount to be displayed by the observers
+     * @throws PaymentException is thrown if the observer TotalRevenueFileOutput cant execute
+     */
+    private void showTotalIncome(double updatedIncome) throws PaymentException {
         try {
             doShowTotalIncome(updatedIncome);
         }
@@ -38,9 +44,10 @@ public abstract class TotalIncomeTrackerTemplate implements RevenueObserver{
 
     /**
      * method that handles potential exceptions
-     * @param exceptions potential exceptions to be thrown
+     * @param exceptions the collected exception to handle
+     * @throws PaymentException is thrown if the observer TotalRevenueFileOutput cant execute
      */
-    protected abstract void handleExceptions(Exception exceptions);
+    protected abstract void handleExceptions(Exception exceptions) throws PaymentException;
 
 
 }

@@ -41,7 +41,7 @@ public class View {
     /**
      * method simulates a purchase following the flow from seminar 1
      */
-    public void purchaseSimulation(int customerId){
+    public void purchaseSimulation(int customerId, boolean discount){
         try {
             System.out.println("A purchase is starting...\n");
 
@@ -67,7 +67,7 @@ public class View {
             simulateEnterToManyQuantity();
 
             controller.createTestDiscount(1, 9, 2);
-            simulateCustomerRequestDiscount(false, customerId);
+            simulateCustomerRequestDiscount(discount, customerId);
 
             simulatePayingLessThanPrice();
             simulateGeneratingMoreChangeThanAvailable();
@@ -82,9 +82,10 @@ public class View {
             controller.endSale();
 
         }
-        catch (PurchaseException e){
+        catch (PurchaseException|PaymentException e){
             System.out.println(e.getMessage());
         }
+
         catch (Exception e){
             exceptionLogger.storeExceptionToFile(e);
         }
