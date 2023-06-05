@@ -23,7 +23,7 @@ public class Main {
         int firstCustomerId = firstRandom.nextInt(1000,10000);
         int secondCustomerId = secondRandom.nextInt(1000,10000);
         boolean testOfInheritedRandom = firstRandom.nextBoolean();
-        System.out.println("RandomWithInheritance created this boolean:" + (testOfInheritedRandom));
+
 
 
         view.purchaseSimulation(firstCustomerId,false);

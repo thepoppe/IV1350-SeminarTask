@@ -32,7 +32,7 @@ public class TotalRevenueView extends TotalIncomeTrackerTemplate {
      */
     @Override
     protected void doShowTotalIncome(double income) throws Exception {
-        System.out.printf("The total income is: %.2f", income);
+        System.out.printf("The total income is: %.2f\n\n", income);
     }
 
     /**
