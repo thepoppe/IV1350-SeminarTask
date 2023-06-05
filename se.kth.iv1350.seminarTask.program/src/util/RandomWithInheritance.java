@@ -3,6 +3,10 @@ package util;
 
 import java.util.List;
 
+/**
+ * This class is an adaption of the class java.util.Random.
+ * It uses inheritance to extend the features of Random.
+ */
 public class RandomWithInheritance extends java.util.Random{
 
     public RandomWithInheritance(){};

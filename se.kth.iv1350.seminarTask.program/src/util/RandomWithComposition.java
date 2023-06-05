@@ -2,7 +2,10 @@ package util;
 import java.util.List;
 import java.util.Random;
 
-
+/**
+ * This class is an adaption of the class java.util.Random.
+ * It uses composition to extend specific features of Random.
+ */
 public class RandomWithComposition {
     private Random random;
     public RandomWithComposition(){
