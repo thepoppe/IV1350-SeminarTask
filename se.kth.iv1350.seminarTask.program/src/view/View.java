@@ -23,6 +23,7 @@ public class View {
     private final TotalRevenueView incomeSubscriberInView;
 
 
+
     /**
      * constructor creates an instance of the class Controller
      * @param controller - the controller created in main
@@ -31,7 +32,8 @@ public class View {
 
         this.controller = controller;
         this.exceptionLogger = new ExceptionLogger();
-        this.incomeSubscriberInView = new TotalRevenueView();
+        this.incomeSubscriberInView = new TotalRevenueView(exceptionLogger);
+
     }
 
 
@@ -39,17 +41,17 @@ public class View {
     /**
      * method simulates a purchase following the flow from seminar 1
      */
-    public void purchaseSimulation(){
+    public void purchaseSimulation(int customerId){
         try {
             System.out.println("A purchase is starting...\n");
 
             controller.startSale(this.incomeSubscriberInView);
 
 
+            System.out.println("Trying to start another sale before current is done...");
             try{
             controller.startSale(this.incomeSubscriberInView);}
-            catch(Exception e){
-                System.out.println("Trying to start another sale before current is done...");
+            catch(IllegalStateException e){
                 System.out.println(e.getMessage());
 
             }
@@ -64,15 +66,17 @@ public class View {
             simulateScanningInvalidIdentifier();
             simulateEnterToManyQuantity();
 
-            controller.createTestDiscount(1337, 9, 2);
-            simulateCustomerRequestDiscount(false);
+            controller.createTestDiscount(1, 9, 2);
+            simulateCustomerRequestDiscount(false, customerId);
 
             simulatePayingLessThanPrice();
             simulateGeneratingMoreChangeThanAvailable();
 
             System.out.println("Paying for the goods...");
             simulatePayment(200);
-            printReceipt(controller.collectReceipt());
+
+            System.out.println("\nThe receipt gets printed...\n");
+            printReceipt(controller.collectReceipt(), customerId);
 
             System.out.println("The Purchase ends");
             controller.endSale();
@@ -149,10 +153,10 @@ public class View {
     }
 
 
-    private void simulateCustomerRequestDiscount(boolean customerAskForDiscount) {
+    private void simulateCustomerRequestDiscount(boolean customerAskForDiscount, int customerId) {
 
         if (customerAskForDiscount) {
-            int customerID = 1337;
+            int customerID = customerId;
             PurchaseDTO purchaseInformation = this.controller.requestDiscount(customerID);
             showOnScreen(purchaseInformation);
         }
@@ -183,7 +187,7 @@ public class View {
     }
 
     private void showOnScreen(PurchaseDTO info){
-        System.out.println("Information about the purchase:");
+        System.out.print("Information about the purchase:\n");
         for (RegisteredItem item : info.getRegisteredItems()) {
             System.out.print(item.getItem().getDescription());
             System.out.print(", "+ (item.getItem().getPrice()-item.getDiscount()) +", ");
@@ -199,17 +203,16 @@ public class View {
 
     }
 
-    private void printReceipt(ReceiptDTO receipt){
-
-        System.out.println("\nThe receipt gets printed...\n"+receipt.getTimeAndDate()+"\n");
+    private void printReceipt(ReceiptDTO receipt, int customerIdNumber){
+        System.out.println("\nCustomer id:\t"+customerIdNumber);
+        System.out.println("Time of purchase: \n"+receipt.getTimeAndDate()+"\n");
 
         for (RegisteredItem item:receipt.getSoldItems()) {
             System.out.print(item.getItem().getDescription()+ "\t"+
                     (item.getItem().getPrice()-item.getDiscount()) +"kr"+
                     "\t" + item.getQuantity()+" pcs\n");
         }
-        System.out.printf("Total Price: " +
-                "\n", receipt.getRunningTotal());
+        System.out.printf("Total Price: %.2f\n", receipt.getRunningTotal());
         System.out.printf("Total VAT: %.2f\n", receipt.getTotalVAT());
         System.out.printf("Change: %.2f\n\n", receipt.getChange());
 

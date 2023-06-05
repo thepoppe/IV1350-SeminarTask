@@ -1,17 +1,19 @@
 package model;
 
 import model.RevenueObserver;
+import util.ExceptionLogger;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Subscriber to the PurchaseObserver that prints the revenue to a log
+ * Subscriber to the ObservedTotalRevenue that prints the revenue to a log
  */
-public class TotalRevenueFileOutput implements RevenueObserver {
+public class TotalRevenueFileOutput extends TotalIncomeTrackerTemplate {
     private static final String file_name = "Sale_process_income.txt";
     private final PrintWriter printer;
+    private ExceptionLogger exceptionLogger;
 
     /**
      * Constructor that creates an instance of the class
@@ -23,13 +25,27 @@ public class TotalRevenueFileOutput implements RevenueObserver {
     }
 
     /**
-     * The method that is tracked from the PurchaseObserver prints the revenue to a file.
-     * @param newIncome the new income from a sale that is to be stored
+     * Overloaded constructor with an additional exception logger
+     * @param logger an instance of the file-writer for the error log
+     * @throws IOException if an exception is thrown when creating the FileWriter
      */
+    public TotalRevenueFileOutput(ExceptionLogger logger)
+            throws IOException {
+        printer = new PrintWriter(new FileWriter(file_name,true),true);
+        this.exceptionLogger = logger;
+
+    }
+
+
     @Override
-    public void updateTotalRevenue(double newIncome) {
-        String message = createMessageToStore(newIncome);
+    protected void doShowTotalIncome(double income) throws Exception {
+        String message = createMessageToStore(income);
         printer.printf(message);
+    }
+
+    @Override
+    protected void handleExceptions(Exception exceptions) {
+        exceptionLogger.storeExceptionToFile(exceptions);
     }
 
     /**

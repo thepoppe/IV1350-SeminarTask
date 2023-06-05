@@ -4,7 +4,7 @@ import model.RevenueObserver;
 
 import java.util.ArrayList;
 
-public class PurchaseObserver  {
+public class ObservedTotalRevenue {
     private ArrayList<RevenueObserver> allSubscribers = new ArrayList<>();
     private double totalRevenue = 0;
 

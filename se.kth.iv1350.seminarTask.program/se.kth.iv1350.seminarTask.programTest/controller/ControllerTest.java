@@ -1,7 +1,7 @@
 package controller;
 
 import model.payment.PaymentException;
-import observer.PurchaseObserver;
+import observer.ObservedTotalRevenue;
 import integration.ExternalHandlerCreator;
 import integration.inventory.EnteredItemInfoDTO;
 import integration.inventory.ItemDTO;
@@ -22,7 +22,7 @@ class ControllerTest {
     Controller controllerTest;
     @BeforeEach
     void setUp() throws IOException {
-        controllerTest = new Controller(new ExternalHandlerCreator(), new PurchaseObserver());
+        controllerTest = new Controller(new ExternalHandlerCreator(), new ObservedTotalRevenue());
         RegisteredItem[] testInventory = {new RegisteredItem(new ItemDTO(10,"Test",10,0),10)};
         controllerTest.createTestInventory(testInventory);
         controllerTest.createTestDiscount(1000,10,5);

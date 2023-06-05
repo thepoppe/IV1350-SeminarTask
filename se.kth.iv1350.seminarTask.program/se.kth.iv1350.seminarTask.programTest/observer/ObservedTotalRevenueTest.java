@@ -8,14 +8,14 @@ import view.TotalRevenueView;
 
 import java.io.IOException;
 
-class PurchaseObserverTest {
+class ObservedTotalRevenueTest {
 
     private TotalRevenueView viewOutput;
     private TotalRevenueFileOutput fileOutput;
-    private PurchaseObserver observer;
+    private ObservedTotalRevenue observer;
     @BeforeEach
     void setUp() throws IOException {
-        this.observer = new PurchaseObserver();
+        this.observer = new ObservedTotalRevenue();
         this.viewOutput = new TotalRevenueView();
         this.fileOutput = new TotalRevenueFileOutput();
     }

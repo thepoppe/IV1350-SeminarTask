@@ -1291,3 +1291,759 @@ integration.FailedToConnectToDatabaseException: External Inventory is not reache
 	at startup.Main.main(Main.java:19)
 ------------------------------------------------------------------------
 
+An error was caught at: 2023-05-30T19:07:58.866696400.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:51)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T19:07:58.879398200.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:125)
+	at view.View.purchaseSimulation(View.java:60)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T19:07:58.921300.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:51)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T19:07:58.921300.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:125)
+	at view.View.purchaseSimulation(View.java:60)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T22:58:35.236771.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:51)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T22:58:35.248806.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:125)
+	at view.View.purchaseSimulation(View.java:60)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T22:58:35.288804.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:51)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T22:58:35.289803900.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:125)
+	at view.View.purchaseSimulation(View.java:60)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T23:01:24.939426400.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:51)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T23:01:24.949071500.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:125)
+	at view.View.purchaseSimulation(View.java:60)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T23:01:24.980836700.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:51)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T23:01:24.981925500.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:125)
+	at view.View.purchaseSimulation(View.java:60)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T23:19:20.817541700.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:51)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T23:19:20.829087800.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:125)
+	at view.View.purchaseSimulation(View.java:60)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T23:19:20.862279300.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:51)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-05-30T23:19:20.862279300.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:125)
+	at view.View.purchaseSimulation(View.java:60)
+	at startup.Main.main(Main.java:19)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-03T13:44:54.091684200.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:27)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-03T13:44:54.106697300.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:27)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-03T13:44:54.157761700.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:28)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-03T13:44:54.158763.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:28)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-03T13:50:42.808445800.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:28)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-03T13:50:42.818455.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:28)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-03T13:50:42.849997700.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-03T13:50:42.850999100.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-03T13:51:07.403806700.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-03T13:51:07.414818.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-03T13:51:07.448908900.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-03T13:51:07.448908900.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T09:55:01.219247800.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T09:55:01.229258200.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T09:55:01.273300800.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T09:55:01.273300800.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T10:10:35.685457800.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T10:10:35.695486700.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T10:10:35.729516100.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T10:10:35.730517100.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T10:20:01.457209600.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T10:20:01.468219600.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T10:20:01.504799800.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T10:20:01.504799800.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T10:23:45.509227300.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T10:23:45.517234400.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T10:23:45.550770500.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T10:23:45.550770500.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:25:12.520285500.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:25:12.532295400.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:25:43.813345100.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:25:43.823354300.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:26:02.041118300.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:26:02.052141800.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:26:47.376294800.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:26:47.390353700.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:32:57.175806600.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:32:57.186817100.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:32:57.224851300.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:32:57.225853400.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:33:32.515242.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:33:32.524249100.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:33:32.557365800.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:33:32.558282.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:35:04.401349300.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:35:04.411357.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:35:04.449530900.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:35:04.450532.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:35:23.562109.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:35:23.573118900.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:35:23.614158.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:35:23.614158.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:36:03.506603700.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:36:03.516614.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:29)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:36:03.556667600.
+Error message: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+java.lang.IllegalStateException: An instance of the class Purchase or Payment was re-initiated before the current sale was finished
+
+	at controller.Controller.startSale(Controller.java:74)
+	at view.View.purchaseSimulation(View.java:53)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+
+An error was caught at: 2023-06-05T11:36:03.556667600.
+Error message: External Inventory is not reached
+integration.FailedToConnectToDatabaseException: External Inventory is not reached
+	at integration.inventory.InventoryHandler.connectToExternalInventory(InventoryHandler.java:59)
+	at integration.inventory.InventoryHandler.fetchItemFromInventory(InventoryHandler.java:41)
+	at controller.Controller.enterItemInfo(Controller.java:102)
+	at view.View.simulateDatabaseConnectionError(View.java:129)
+	at view.View.purchaseSimulation(View.java:62)
+	at startup.Main.main(Main.java:30)
+------------------------------------------------------------------------
+

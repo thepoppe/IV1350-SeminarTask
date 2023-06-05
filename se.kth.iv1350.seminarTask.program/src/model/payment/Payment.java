@@ -13,6 +13,8 @@ public class Payment {
     private PaymentDTO paymentInfo;
 
 
+
+
     /**
      * Constructor for the class Payment. Creates an instance of Payment.
      * @param registerAmount - the amount of change present in the Register

@@ -1,8 +1,11 @@
 package integration.discounts;
 
 import model.purchase.PurchaseDTO;
+import util.RandomWithComposition;
+import util.RandomWithInheritance;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * This class is a part of the integration layer and is responsible for retrieving information about discount
@@ -48,6 +51,13 @@ public class DiscountHandler {
         eligibleCustomers.add(customerIdentification);
         availableDiscounts = new ArrayList<>();
         availableDiscounts.add(new DiscountDTO(identifierForItem, priceReduction));
+
+
+        RandomWithComposition firstRandom = new RandomWithComposition();
+        RandomWithInheritance secondRandom = new RandomWithInheritance();
+        eligibleCustomers.add(firstRandom.nextInt(eligibleCustomers,1,3));
+        eligibleCustomers.add(secondRandom.nextInt(eligibleCustomers,1,3));
+        System.out.println("\nThe created test customerIDs:\n"+Arrays.toString(eligibleCustomers.toArray())+"\n\n");
 
     }
 }

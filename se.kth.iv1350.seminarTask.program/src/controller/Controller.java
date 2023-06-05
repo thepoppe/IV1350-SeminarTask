@@ -2,7 +2,7 @@
 
 import model.TotalRevenueFileOutput;
 import model.payment.*;
-import observer.PurchaseObserver;
+import observer.ObservedTotalRevenue;
 import integration.ExternalHandlerCreator;
 import integration.FailedToConnectToDatabaseException;
 import integration.inventory.*;
@@ -28,7 +28,7 @@ import java.util.ArrayList;
     private Purchase currentPurchase;
     private Payment payment;
     private final ExceptionLogger exceptionLogger;
-    private final PurchaseObserver totalRevenuePublisher;
+    private final ObservedTotalRevenue totalRevenuePublisher;
 
 
     /**
@@ -36,7 +36,7 @@ import java.util.ArrayList;
      * @param externalHandlerCreator contains instances of the external system handlers needed by the Controller
      * @param publisher the instance of the observer object created in main
      */
-    public Controller(ExternalHandlerCreator externalHandlerCreator, PurchaseObserver publisher) throws IOException {
+    public Controller(ExternalHandlerCreator externalHandlerCreator, ObservedTotalRevenue publisher) throws IOException {
 
         this.inventoryHandler = externalHandlerCreator.getInventoryHandler();
         this.discountHandler = externalHandlerCreator.getDiscountHandler();
@@ -80,7 +80,7 @@ import java.util.ArrayList;
          this.payment = new Payment(registerAmount);
          this.currentPurchase = new Purchase();
          this.totalRevenuePublisher.addObserver(incomeSubscriberInView);
-         this.totalRevenuePublisher.addObserver(new TotalRevenueFileOutput());
+         this.totalRevenuePublisher.addObserver(new TotalRevenueFileOutput(this.exceptionLogger));
 
      }
 

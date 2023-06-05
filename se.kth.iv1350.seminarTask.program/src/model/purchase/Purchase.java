@@ -1,11 +1,8 @@
 package model.purchase;
 
-import model.TotalRevenueFileOutput;
-import observer.PurchaseObserver;
 import integration.discounts.DiscountDTO;
 import integration.inventory.ItemDTO;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
