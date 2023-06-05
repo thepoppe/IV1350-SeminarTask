@@ -36,7 +36,7 @@ class ViewTest {
     }
 
     @Test
-    void purchaseSimulation() {
+    void verifyOngoingPurchaseInfoToUser() {
 
         view.purchaseSimulation(1);
         String outputResult = outContent.toString();
